@@ -67,3 +67,11 @@ footer {
   padding: 20px;
   font-size: 0.9em;
 }
+
+.photo img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  margin: 20px 0;
+}
