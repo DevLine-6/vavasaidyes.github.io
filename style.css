@@ -1,0 +1,69 @@
+body {
+  margin: 0;
+  font-family: "Georgia", serif;
+  background: #faf7f5;
+  color: #333;
+  text-align: center;
+}
+
+header {
+  background: #e8dcd5;
+  padding: 60px 20px;
+}
+
+header h1 {
+  font-size: 3em;
+  margin: 0;
+}
+
+header p {
+  font-size: 1.2em;
+  margin: 10px 0;
+}
+
+header span {
+  font-style: italic;
+}
+
+section {
+  max-width: 700px;
+  margin: 50px auto;
+  padding: 0 20px;
+}
+
+h2 {
+  margin-bottom: 20px;
+}
+
+.info p {
+  margin: 8px 0;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+ul li {
+  margin: 10px 0;
+}
+
+.rsvp a {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 25px;
+  background: #c49a6c;
+  color: white;
+  text-decoration: none;
+  border-radius: 30px;
+}
+
+.rsvp a:hover {
+  background: #a97c50;
+}
+
+footer {
+  background: #e8dcd5;
+  padding: 20px;
+  font-size: 0.9em;
+}
