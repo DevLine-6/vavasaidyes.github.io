@@ -1,1 +1,57 @@
-# vavasaidyes.github.io
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>V&N – Notre Mariage</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <h1>V&N</h1>
+  <p>se marient</p>
+  <span>21 juin 2026 • Bordeaux</span>
+</header>
+
+<section>
+  <h2>Bienvenue</h2>
+  <p>
+    Nous sommes très heureux de vous inviter à célébrer notre mariage.
+    Retrouvez ici toutes les informations utiles pour cette belle journée.
+  </p>
+</section>
+
+<section class="info">
+  <h2>📍 Le mariage</h2>
+  <p><strong>Date :</strong> Samedi 21 juin 2026</p>
+  <p><strong>Cérémonie :</strong> 15h – Église Saint-Pierre</p>
+  <p><strong>Réception :</strong> Château de la Rose, 18h</p>
+</section>
+
+<section>
+  <h2>🕒 Programme</h2>
+  <ul>
+    <li>15h – Cérémonie</li>
+    <li>17h – Photos</li>
+    <li>18h – Cocktail</li>
+    <li>20h – Dîner & soirée</li>
+  </ul>
+</section>
+
+<section class="rsvp">
+  <h2>✉️ RSVP</h2>
+  <p>
+    Merci de confirmer votre présence avant le 1er mai 2026
+  </p>
+  <a href="mailto:mariage@example.com?subject=RSVP Mariage">
+    Confirmer par email
+  </a>
+</section>
+
+<footer>
+  <p>V&N – 2026</p>
+</footer>
+
+</body>
+</html>
