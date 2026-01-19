@@ -1,4 +1,3 @@
-theme: minima
 <!DOCTYPE html>
 <html lang="fr">
 <head>
