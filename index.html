@@ -5,7 +5,6 @@
   <title>Vanessa & Nicolas – Notre Mariage</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Playfair+Display&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="style.css" />
@@ -13,7 +12,7 @@
   <style>
 
     /* =========================
-       FOND DE LA PAGE
+       FOND
        ========================= */
 
     html,
@@ -25,10 +24,92 @@
       font-family: 'Montserrat', sans-serif;
       color: #333;
       max-width: 700px;
-      margin: 40px auto;
-      padding: 0 20px;
-      line-height: 1.6;
+      margin: 0 auto;
+      padding: 40px 20px;
+      min-height: 100vh;
       box-sizing: border-box;
+    }
+
+
+    /* =========================
+       ÉCRAN D'ACCUEIL
+       ========================= */
+
+    #welcomeScreen {
+      position: fixed;
+      inset: 0;
+
+      background-color: #f2f0ec;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      text-align: center;
+
+      z-index: 10000;
+
+      opacity: 1;
+      visibility: visible;
+
+      transition:
+        opacity 1s ease,
+        visibility 1s ease;
+    }
+
+    #welcomeScreen.hidden {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    .welcomeContent {
+      padding: 30px;
+    }
+
+    .welcomeTitle {
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
+      color: #bfa26f;
+      letter-spacing: 2px;
+      margin-bottom: 25px;
+    }
+
+    .welcomeLine {
+      width: 70px;
+      height: 2px;
+      background-color: #bfa26f;
+      margin: 0 auto 35px;
+    }
+
+    #enterButton {
+      background-color: #bfa26f;
+      color: white;
+      border: none;
+      border-radius: 30px;
+      padding: 15px 32px;
+
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+
+      cursor: pointer;
+
+      box-shadow:
+        0 4px 15px rgba(0, 0, 0, 0.15);
+
+      transition:
+        transform 0.3s ease,
+        background-color 0.3s ease,
+        box-shadow 0.3s ease;
+    }
+
+    #enterButton:hover {
+      background-color: #a2874f;
+      transform: translateY(-2px);
+
+      box-shadow:
+        0 7px 20px rgba(0, 0, 0, 0.2);
     }
 
 
@@ -51,7 +132,11 @@
       font-family: 'Montserrat', sans-serif;
       color: #666;
       border-bottom: 3px solid transparent;
-      transition: color 0.3s, border-color 0.3s;
+
+      transition:
+        color 0.3s,
+        border-color 0.3s;
+
       user-select: none;
     }
 
@@ -64,9 +149,12 @@
       display: none;
       max-width: 700px;
       margin: 0 auto 50px;
+
       font-family: 'Montserrat', sans-serif;
       color: #555;
       line-height: 1.6;
+
+      background-color: #f2f0ec !important;
     }
 
     .tab-content.active {
@@ -80,21 +168,30 @@
 
     .few-words {
       min-height: 300px;
+
       display: flex;
       align-items: center;
       justify-content: center;
+
       text-align: center;
+
       padding: 40px 20px;
+
       box-sizing: border-box;
     }
 
     .few-words p {
       max-width: 600px;
+
       font-family: 'Georgia', serif;
+
       font-size: 1rem;
       line-height: 1.8;
+
       font-style: italic;
+
       color: #555;
+
       margin: 0;
     }
 
@@ -106,10 +203,46 @@
     .photo img {
       width: 100%;
       max-height: 400px;
+
       object-fit: cover;
+
       border-radius: 15px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+
+      box-shadow:
+        0 4px 10px rgba(0, 0, 0, 0.1);
+
       margin-top: 20px;
+    }
+
+
+    /* =========================
+       TITRES
+       ========================= */
+
+    h2 {
+      font-family: 'Playfair Display', serif;
+
+      font-weight: 600;
+
+      font-size: 2rem;
+
+      color: #bfa26f;
+
+      margin-bottom: 25px;
+
+      border-bottom: 2px solid #eee;
+
+      padding-bottom: 8px;
+    }
+
+    p,
+    li {
+      font-size: 1rem;
+      color: #555;
+    }
+
+    ul {
+      padding-left: 20px;
     }
 
 
@@ -117,10 +250,19 @@
        FORMULAIRE
        ========================= */
 
+    .rsvp-form {
+      max-width: 500px;
+      margin: 0 auto;
+      text-align: left;
+    }
+
     form label {
       display: block;
+
       margin-bottom: 6px;
+
       font-weight: 600;
+
       color: #444;
     }
 
@@ -128,110 +270,76 @@
     form input[type="email"],
     form input[type="number"] {
       width: 100%;
+
       padding: 8px 10px;
+
       border: 1px solid #ccc;
+
       border-radius: 8px;
+
       margin-bottom: 20px;
+
       font-size: 1rem;
+
       box-sizing: border-box;
+
       background-color: white;
+
       color: #333;
     }
 
     form input[type="radio"] {
       width: auto;
+
       margin-right: 6px;
+
       vertical-align: middle;
+
       margin-bottom: 0;
     }
 
     form input[type="radio"] + label {
       display: inline-block;
+
       margin-right: 15px;
+
       width: auto;
+
       cursor: pointer;
+
       padding: 0;
+
       border: none;
     }
 
 
     /* =========================
-       BOUTON
+       BOUTONS
        ========================= */
 
     button {
       background-color: #bfa26f;
+
       color: white;
+
       border: none;
+
       border-radius: 30px;
+
       padding: 12px 30px;
+
       font-weight: 600;
+
       font-size: 1rem;
+
       cursor: pointer;
-      transition: background-color 0.3s ease;
+
+      transition:
+        background-color 0.3s ease;
     }
 
     button:hover {
       background-color: #a2874f;
-    }
-
-
-    /* =========================
-       BOUTON MUSIQUE
-       ========================= */
-
-    #musicButton {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-
-      width: 52px;
-      height: 52px;
-
-      border-radius: 50%;
-      border: 2px solid rgba(255, 255, 255, 0.8);
-
-      background-color: #bfa26f;
-      color: white;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      font-size: 22px;
-      padding: 0;
-
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-
-      cursor: pointer;
-      z-index: 9999;
-
-      transition:
-        transform 0.2s ease,
-        background-color 0.3s ease;
-    }
-
-    #musicButton:hover {
-      background-color: #a2874f;
-      transform: scale(1.08);
-    }
-
-    #musicButton.playing {
-      animation: musicPulse 1.5s infinite;
-    }
-
-    @keyframes musicPulse {
-      0% {
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-      }
-
-      50% {
-        box-shadow: 0 4px 20px rgba(191, 162, 111, 0.7);
-      }
-
-      100% {
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-      }
     }
 
 
@@ -242,13 +350,15 @@
     iframe {
       width: 100%;
       max-width: 600px;
+
       border-radius: 15px;
+
       margin-top: 10px;
     }
 
 
     /* =========================
-       ÉLÉMENTS CACHÉS
+       UTILITAIRES
        ========================= */
 
     .hidden {
@@ -265,6 +375,15 @@
        ========================= */
 
     @media (max-width: 480px) {
+
+      .welcomeTitle {
+        font-size: 2.3rem;
+      }
+
+      #enterButton {
+        padding: 14px 25px;
+        font-size: 0.9rem;
+      }
 
       .tabs {
         flex-direction: column;
@@ -286,13 +405,6 @@
         line-height: 1.7;
       }
 
-      #musicButton {
-        width: 48px;
-        height: 48px;
-        bottom: 15px;
-        right: 15px;
-        font-size: 20px;
-      }
     }
 
   </style>
@@ -301,18 +413,38 @@
 
 <body>
 
+
   <!-- =========================
-       MUSIQUE DE FOND
+       ÉCRAN D'ACCUEIL
+       ========================= -->
+
+  <div id="welcomeScreen">
+
+    <div class="welcomeContent">
+
+      <div class="welcomeTitle">
+        Vanessa & Nicolas
+      </div>
+
+      <div class="welcomeLine"></div>
+
+      <button id="enterButton" type="button">
+        Entrez dans notre histoire
+      </button>
+
+    </div>
+
+  </div>
+
+
+  <!-- =========================
+       MUSIQUE
        ========================= -->
 
   <audio id="backgroundMusic" loop preload="auto">
     <source src="musique.mp3" type="audio/mpeg">
     Votre navigateur ne supporte pas la lecture audio.
   </audio>
-
-  <button id="musicButton" type="button" aria-label="Activer ou désactiver la musique">
-    ♫
-  </button>
 
 
   <!-- =========================
@@ -534,7 +666,7 @@
   <script>
 
     /* =========================
-       GESTION DES ONGLET
+       ONGLET
        ========================= */
 
     const tabs = document.querySelectorAll('.tab');
@@ -568,85 +700,46 @@
 
 
     /* =========================
-       MUSIQUE
+       ÉCRAN D'ACCUEIL + MUSIQUE
        ========================= */
 
-    const music = document.getElementById('backgroundMusic');
-    const musicButton = document.getElementById('musicButton');
+    const welcomeScreen =
+      document.getElementById('welcomeScreen');
 
-    let musicStarted = false;
+    const enterButton =
+      document.getElementById('enterButton');
 
-
-    function startMusic() {
-
-      if (!musicStarted) {
-
-        music.play()
-          .then(() => {
-
-            musicStarted = true;
-
-            musicButton.textContent = '🔊';
-
-            musicButton.classList.add('playing');
-
-          })
-          .catch(error => {
-
-            console.log(
-              'La lecture automatique est bloquée :',
-              error
-            );
-
-          });
-
-      }
-
-    }
+    const music =
+      document.getElementById('backgroundMusic');
 
 
-    /* Premier clic sur la page */
+    enterButton.addEventListener('click', function () {
 
-    document.addEventListener(
-      'click',
-      startMusic,
-      { once: true }
-    );
+      /* Volume de la musique */
+      music.volume = 0.5;
 
 
-    /* Bouton musique */
+      /* Lancement de la musique */
+      music.play()
+        .then(() => {
 
-    musicButton.addEventListener(
-      'click',
-      event => {
+          console.log('Musique lancée');
 
-        event.stopPropagation();
+        })
+        .catch(error => {
 
-        if (music.paused) {
+          console.log(
+            'Impossible de lancer la musique :',
+            error
+          );
 
-          music.play()
-            .then(() => {
+        });
 
-              musicStarted = true;
 
-              musicButton.textContent = '🔊';
+      /* Faire disparaître l'écran */
+      welcomeScreen.classList.add('hidden');
 
-              musicButton.classList.add('playing');
-
-            });
-
-        } else {
-
-          music.pause();
-
-          musicButton.textContent = '🔇';
-
-          musicButton.classList.remove('playing');
-
-        }
-
-      }
-    );
+    });
 
   </script>
 
