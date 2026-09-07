@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -5,7 +6,11 @@
   <title>Vanessa & Nicolas – Notre Mariage</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Playfair+Display&display=swap" rel="stylesheet" />
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Playfair+Display&display=swap"
+    rel="stylesheet"
+  />
 
   <link rel="stylesheet" href="style.css" />
 
@@ -38,6 +43,7 @@
     #welcomeScreen {
       position: fixed;
       inset: 0;
+      z-index: 10000;
 
       background-color: #f2f0ec;
 
@@ -46,8 +52,6 @@
       justify-content: center;
 
       text-align: center;
-
-      z-index: 10000;
 
       opacity: 1;
       visibility: visible;
@@ -87,6 +91,7 @@
       color: white;
       border: none;
       border-radius: 30px;
+
       padding: 15px 32px;
 
       font-family: 'Montserrat', sans-serif;
@@ -114,85 +119,86 @@
 
 
     /* =========================
-       ONGLET
+       BOUTON MUSIQUE
        ========================= */
 
-    .tabs {
-      display: flex;
-      justify-content: center;
-      margin-bottom: 30px;
-      border-bottom: 2px solid #eee;
-      gap: 20px;
-    }
+    #musicButton {
+      position: fixed;
 
-    .tab {
+      right: 20px;
+      bottom: 20px;
+
+      width: 52px;
+      height: 52px;
+
+      border-radius: 50%;
+
+      border: 2px solid rgba(255, 255, 255, 0.8);
+
+      background-color: #bfa26f;
+      color: white;
+
+      display: none;
+
+      align-items: center;
+      justify-content: center;
+
+      font-size: 21px;
+
+      padding: 0;
+
+      box-shadow:
+        0 4px 12px rgba(0, 0, 0, 0.2);
+
       cursor: pointer;
-      padding: 12px 30px;
-      font-weight: 600;
-      font-family: 'Montserrat', sans-serif;
-      color: #666;
-      border-bottom: 3px solid transparent;
+
+      z-index: 9999;
 
       transition:
-        color 0.3s,
-        border-color 0.3s;
-
-      user-select: none;
+        transform 0.2s ease,
+        background-color 0.3s ease;
     }
 
-    .tab.active {
-      color: #bfa26f;
-      border-color: #bfa26f;
+    #musicButton.visible {
+      display: flex;
     }
 
-    .tab-content {
-      display: none;
-      max-width: 700px;
-      margin: 0 auto 50px;
-
-      font-family: 'Montserrat', sans-serif;
-      color: #555;
-      line-height: 1.6;
-
-      background-color: #f2f0ec !important;
+    #musicButton:hover {
+      background-color: #a2874f;
+      transform: scale(1.08);
     }
 
-    .tab-content.active {
-      display: block;
+    #musicButton.playing {
+      animation: musicPulse 1.5s infinite;
+    }
+
+    @keyframes musicPulse {
+
+      0% {
+        box-shadow:
+          0 4px 12px rgba(0, 0, 0, 0.2);
+      }
+
+      50% {
+        box-shadow:
+          0 4px 20px rgba(191, 162, 111, 0.7);
+      }
+
+      100% {
+        box-shadow:
+          0 4px 12px rgba(0, 0, 0, 0.2);
+      }
+
     }
 
 
     /* =========================
-       QUELQUES MOTS
+       HEADER
        ========================= */
 
-    .few-words {
-      min-height: 300px;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
+    header {
       text-align: center;
-
-      padding: 40px 20px;
-
-      box-sizing: border-box;
-    }
-
-    .few-words p {
-      max-width: 600px;
-
-      font-family: 'Georgia', serif;
-
-      font-size: 1rem;
-      line-height: 1.8;
-
-      font-style: italic;
-
-      color: #555;
-
-      margin: 0;
+      margin: 40px 0;
     }
 
 
@@ -212,6 +218,103 @@
         0 4px 10px rgba(0, 0, 0, 0.1);
 
       margin-top: 20px;
+    }
+
+
+    /* =========================
+       ONGLET
+       ========================= */
+
+    .tabs {
+      display: flex;
+      justify-content: center;
+
+      margin-bottom: 30px;
+
+      border-bottom: 2px solid #eee;
+
+      gap: 20px;
+    }
+
+    .tab {
+      cursor: pointer;
+
+      padding: 12px 30px;
+
+      font-weight: 600;
+
+      font-family: 'Montserrat', sans-serif;
+
+      color: #666;
+
+      border-bottom: 3px solid transparent;
+
+      transition:
+        color 0.3s,
+        border-color 0.3s;
+
+      user-select: none;
+    }
+
+    .tab.active {
+      color: #bfa26f;
+      border-color: #bfa26f;
+    }
+
+    .tab-content {
+      display: none;
+
+      max-width: 700px;
+
+      margin: 0 auto 50px;
+
+      font-family: 'Montserrat', sans-serif;
+
+      color: #555;
+
+      line-height: 1.6;
+
+      background-color: #f2f0ec !important;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+
+    /* =========================
+       QUELQUES MOTS
+       ========================= */
+
+    .few-words {
+      min-height: 300px;
+
+      display: flex;
+
+      align-items: center;
+      justify-content: center;
+
+      text-align: center;
+
+      padding: 40px 20px;
+
+      box-sizing: border-box;
+    }
+
+    .few-words p {
+      max-width: 600px;
+
+      font-family: Georgia, serif;
+
+      font-size: 1rem;
+
+      line-height: 1.8;
+
+      font-style: italic;
+
+      color: #555;
+
+      margin: 0;
     }
 
 
@@ -269,6 +372,7 @@
     form input[type="text"],
     form input[type="email"],
     form input[type="number"] {
+
       width: 100%;
 
       padding: 8px 10px;
@@ -344,7 +448,7 @@
 
 
     /* =========================
-       GOOGLE MAPS
+       MAP
        ========================= */
 
     iframe {
@@ -405,6 +509,16 @@
         line-height: 1.7;
       }
 
+      #musicButton {
+        width: 48px;
+        height: 48px;
+
+        right: 15px;
+        bottom: 15px;
+
+        font-size: 20px;
+      }
+
     }
 
   </style>
@@ -428,8 +542,12 @@
 
       <div class="welcomeLine"></div>
 
-      <button id="enterButton" type="button">
+      <button
+        id="enterButton"
+        type="button">
+
         Entrez dans notre histoire
+
       </button>
 
     </div>
@@ -441,20 +559,44 @@
        MUSIQUE
        ========================= -->
 
-  <audio id="backgroundMusic" loop preload="auto">
-    <source src="musique.mp3" type="audio/mpeg">
-    Votre navigateur ne supporte pas la lecture audio.
+  <audio
+    id="backgroundMusic"
+    loop
+    preload="auto">
+
+    <source
+      src="./musique.mp3"
+      type="audio/mpeg">
+
   </audio>
+
+
+  <!-- =========================
+       BOUTON MUSIQUE
+       ========================= -->
+
+  <button
+    id="musicButton"
+    type="button"
+    aria-label="Activer ou désactiver la musique">
+
+    🔊
+
+  </button>
 
 
   <!-- =========================
        EN-TÊTE
        ========================= -->
 
-  <header style="text-align:center; margin: 40px 0;">
+  <header>
 
     <section class="photo">
-      <img src="1.png" alt="Vanessa & Nicolas" />
+
+      <img
+        src="1.png"
+        alt="Vanessa & Nicolas" />
+
     </section>
 
   </header>
@@ -466,20 +608,36 @@
 
   <nav class="tabs">
 
-    <div class="tab active" data-tab="mots">
+    <div
+      class="tab active"
+      data-tab="mots">
+
       Quelques mots
+
     </div>
 
-    <div class="tab" data-tab="programme">
+    <div
+      class="tab"
+      data-tab="programme">
+
       Programme
+
     </div>
 
-    <div class="tab" data-tab="lieu">
+    <div
+      class="tab"
+      data-tab="lieu">
+
       Lieu de réception
+
     </div>
 
-    <div class="tab" data-tab="rsvp">
+    <div
+      class="tab"
+      data-tab="rsvp">
+
       Confirmer sa présence
+
     </div>
 
   </nav>
@@ -489,15 +647,22 @@
        QUELQUES MOTS
        ========================= -->
 
-  <section id="mots" class="tab-content active">
+  <section
+    id="mots"
+    class="tab-content active">
 
     <div class="few-words">
 
       <p>
+
         Je pourrai en choisir un(e) autre, et pourtant je t'ai choisi.<br>
+
         Et si tu le veux, peu importe ce qui arrivera,<br>
+
         Je resterai avec toi jusqu'à la fin,<br>
+
         Jusqu'à la fin...
+
       </p>
 
     </div>
@@ -509,20 +674,44 @@
        PROGRAMME
        ========================= -->
 
-  <section id="programme" class="tab-content">
+  <section
+    id="programme"
+    class="tab-content">
 
     <section class="photo">
-      <img src="2.png" alt="Programme du mariage" />
+
+      <img
+        src="2.png"
+        alt="Programme du mariage" />
+
     </section>
 
-    <h2>Programme</h2>
+    <h2>
+      Programme
+    </h2>
 
     <ul>
-      <li>15h – Cérémonie civile - Mairie de Hettange-Grande</li>
-      <li>15h15 – Photos de groupe - Parvis de l'Église d'Hettange-Grande</li>
-      <li>16h – Cérémonie religieuse - Église de Hettange-Grande</li>
-      <li>18h30 – Vin d'honneur - Verrière de l'Auberge de la Klauss</li>
-      <li>3h – Départ des invités</li>
+
+      <li>
+        15h – Cérémonie civile - Mairie de Hettange-Grande
+      </li>
+
+      <li>
+        15h15 – Photos de groupe - Parvis de l'Église d'Hettange-Grande
+      </li>
+
+      <li>
+        16h – Cérémonie religieuse - Église de Hettange-Grande
+      </li>
+
+      <li>
+        18h30 – Vin d'honneur - Verrière de l'Auberge de la Klauss
+      </li>
+
+      <li>
+        3h – Départ des invités
+      </li>
+
     </ul>
 
   </section>
@@ -532,15 +721,25 @@
        LIEU
        ========================= -->
 
-  <section id="lieu" class="tab-content">
+  <section
+    id="lieu"
+    class="tab-content">
 
     <section class="photo">
-      <img src="3.png" alt="Lieu de réception" />
+
+      <img
+        src="3.png"
+        alt="Lieu de réception" />
+
     </section>
 
-    <h2>Lieu de réception</h2>
+    <h2>
+      Lieu de réception
+    </h2>
 
-    <p>Domaine de la Klauss</p>
+    <p>
+      Domaine de la Klauss
+    </p>
 
     <iframe
       src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2889.4699221683686!2d6.373335976617923!3d49.41923626107464!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4795166203349c4f%3A0xce069dc3ff531541!2sDomaine%20de%20la%20Klauss!5e1!3m2!1sfr!2sfr!4v1788773828744!5m2!1sfr!2sfr"
@@ -559,13 +758,21 @@
        RSVP
        ========================= -->
 
-  <section id="rsvp" class="tab-content">
+  <section
+    id="rsvp"
+    class="tab-content">
 
     <section class="photo">
-      <img src="4.png" alt="Confirmation de présence" />
+
+      <img
+        src="4.png"
+        alt="Confirmation de présence" />
+
     </section>
 
-    <h2>Confirmez votre présence</h2>
+    <h2>
+      Confirmez votre présence
+    </h2>
 
     <form
       action="https://formsubmit.co/vavandnico07082027@gmail.com"
@@ -615,9 +822,14 @@
         value="Oui"
         required />
 
-      <label for="oui" class="inline">
+      <label
+        for="oui"
+        class="inline">
+
         Oui
+
       </label>
+
 
       <input
         type="radio"
@@ -626,8 +838,12 @@
         value="Non"
         required />
 
-      <label for="non" class="inline">
+      <label
+        for="non"
+        class="inline">
+
         Non
+
       </label>
 
 
@@ -669,8 +885,12 @@
        ONGLET
        ========================= */
 
-    const tabs = document.querySelectorAll('.tab');
-    const contents = document.querySelectorAll('.tab-content');
+    const tabs =
+      document.querySelectorAll('.tab');
+
+    const contents =
+      document.querySelectorAll('.tab-content');
+
 
     tabs.forEach(tab => {
 
@@ -682,14 +902,19 @@
 
         tab.classList.add('active');
 
-        const target = tab.getAttribute('data-tab');
+        const target =
+          tab.getAttribute('data-tab');
 
         contents.forEach(content => {
 
           if (content.id === target) {
+
             content.classList.add('active');
+
           } else {
+
             content.classList.remove('active');
+
           }
 
         });
@@ -700,44 +925,114 @@
 
 
     /* =========================
-       ÉCRAN D'ACCUEIL + MUSIQUE
+       MUSIQUE
        ========================= */
-
-    const welcomeScreen =
-      document.getElementById('welcomeScreen');
-
-    const enterButton =
-      document.getElementById('enterButton');
 
     const music =
       document.getElementById('backgroundMusic');
 
+    const enterButton =
+      document.getElementById('enterButton');
 
-    enterButton.addEventListener('click', function () {
+    const welcomeScreen =
+      document.getElementById('welcomeScreen');
 
-      /* Volume de la musique */
-      music.volume = 0.5;
+    const musicButton =
+      document.getElementById('musicButton');
 
 
-      /* Lancement de la musique */
-      music.play()
-        .then(() => {
+    /* Volume à 50 % */
 
-          console.log('Musique lancée');
+    music.volume = 0.5;
 
-        })
-        .catch(error => {
 
-          console.log(
-            'Impossible de lancer la musique :',
+    /* =========================
+       ENTRER DANS L'HISTOIRE
+       ========================= */
+
+    enterButton.addEventListener('click', async () => {
+
+      try {
+
+        await music.play();
+
+        console.log('Musique lancée avec succès');
+
+        musicButton.classList.add('visible');
+        musicButton.classList.add('playing');
+
+        musicButton.textContent = '🔊';
+
+        welcomeScreen.classList.add('hidden');
+
+      } catch (error) {
+
+        console.error(
+          'Erreur de lecture audio :',
+          error
+        );
+
+        /*
+         * Même si la musique ne démarre pas,
+         * on laisse entrer sur le site.
+         */
+
+        musicButton.classList.add('visible');
+
+        welcomeScreen.classList.add('hidden');
+
+      }
+
+    });
+
+
+    /* =========================
+       BOUTON MUSIQUE
+       ========================= */
+
+    musicButton.addEventListener('click', async () => {
+
+      if (music.paused) {
+
+        try {
+
+          await music.play();
+
+          musicButton.textContent = '🔊';
+
+          musicButton.classList.add('playing');
+
+        } catch (error) {
+
+          console.error(
+            'Impossible de relancer la musique :',
             error
           );
 
-        });
+        }
+
+      } else {
+
+        music.pause();
+
+        musicButton.textContent = '🔇';
+
+        musicButton.classList.remove('playing');
+
+      }
+
+    });
 
 
-      /* Faire disparaître l'écran */
-      welcomeScreen.classList.add('hidden');
+    /* =========================
+       DÉTECTION DU FICHIER AUDIO
+       ========================= */
+
+    music.addEventListener('error', () => {
+
+      console.error(
+        '❌ Le fichier musique.mp3 est introuvable ou illisible.'
+      );
 
     });
 
@@ -745,3 +1040,4 @@
 
 </body>
 </html>
+```
