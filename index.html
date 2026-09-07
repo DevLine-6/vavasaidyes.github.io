@@ -1,15 +1,16 @@
+```html
 <!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
   <title>Vanessa & Nicolas – Notre Mariage</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  
+
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Playfair+Display&display=swap" rel="stylesheet" />
-  
+
   <link rel="stylesheet" href="style.css" />
-  
+
   <style>
     /* Styles spécifiques aux onglets */
     .tabs {
@@ -19,6 +20,7 @@
       border-bottom: 2px solid #eee;
       gap: 20px;
     }
+
     .tab {
       cursor: pointer;
       padding: 12px 30px;
@@ -29,10 +31,12 @@
       transition: color 0.3s, border-color 0.3s;
       user-select: none;
     }
+
     .tab.active {
       color: #bfa26f;
       border-color: #bfa26f;
     }
+
     .tab-content {
       display: none;
       max-width: 700px;
@@ -41,16 +45,40 @@
       color: #555;
       line-height: 1.6;
     }
+
     .tab-content.active {
       display: block;
     }
-    /* Style formulaire */
+
+    /* Onglet Quelques mots */
+    .few-words {
+      min-height: 300px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 40px 20px;
+      box-sizing: border-box;
+    }
+
+    .few-words p {
+      max-width: 600px;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.7rem;
+      line-height: 1.8;
+      font-style: italic;
+      color: #555;
+      margin: 0;
+    }
+
+    /* Formulaire */
     form label {
       display: block;
       margin-bottom: 6px;
       font-weight: 600;
       color: #444;
     }
+
     form input[type="text"],
     form input[type="email"],
     form input[type="number"] {
@@ -62,12 +90,14 @@
       font-size: 1rem;
       box-sizing: border-box;
     }
+
     form input[type="radio"] {
       width: auto;
       margin-right: 6px;
       vertical-align: middle;
       margin-bottom: 0;
     }
+
     form input[type="radio"] + label {
       display: inline-block;
       margin-right: 15px;
@@ -76,6 +106,7 @@
       padding: 0;
       border: none;
     }
+
     button {
       background-color: #bfa26f;
       color: white;
@@ -87,63 +118,222 @@
       cursor: pointer;
       transition: background-color 0.3s ease;
     }
+
     button:hover {
       background-color: #a2874f;
     }
+
+    /* =========================
+       BOUTON MUSIQUE
+       ========================= */
+
+    #musicButton {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+
+      width: 52px;
+      height: 52px;
+
+      border-radius: 50%;
+      border: 2px solid rgba(255, 255, 255, 0.8);
+
+      background-color: #bfa26f;
+      color: white;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      font-size: 22px;
+      padding: 0;
+
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+
+      cursor: pointer;
+      z-index: 9999;
+
+      transition: transform 0.2s ease, background-color 0.3s ease;
+    }
+
+    #musicButton:hover {
+      background-color: #a2874f;
+      transform: scale(1.08);
+    }
+
+    #musicButton.playing {
+      animation: musicPulse 1.5s infinite;
+    }
+
+    @keyframes musicPulse {
+      0% {
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      }
+
+      50% {
+        box-shadow: 0 4px 20px rgba(191, 162, 111, 0.7);
+      }
+
+      100% {
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      }
+    }
+
     /* Responsive */
     @media (max-width: 480px) {
+
       .tabs {
         flex-direction: column;
         gap: 10px;
       }
+
       .tab {
         text-align: center;
         padding: 10px 0;
       }
+
+      .few-words {
+        min-height: 250px;
+        padding: 30px 15px;
+      }
+
+      .few-words p {
+        font-size: 1.35rem;
+        line-height: 1.7;
+      }
+
+      #musicButton {
+        width: 48px;
+        height: 48px;
+        bottom: 15px;
+        right: 15px;
+        font-size: 20px;
+      }
     }
   </style>
 </head>
+
 <body>
+
+  <!-- =========================
+       MUSIQUE DE FOND
+       ========================= -->
+
+  <audio id="backgroundMusic" loop>
+    <source src="musique.mp3" type="audio/mpeg">
+    Votre navigateur ne supporte pas la lecture audio.
+  </audio>
+
+  <button id="musicButton" aria-label="Activer ou désactiver la musique">
+    ♫
+  </button>
+
+
+  <!-- =========================
+       EN-TÊTE
+       ========================= -->
+
   <header style="text-align:center; margin: 40px 0;">
-<section class="photo">
-  <img src="1.png" alt="1.png" />
-</section>
+    <section class="photo">
+      <img src="1.png" alt="Vanessa & Nicolas" />
+    </section>
   </header>
-  
+
+
+  <!-- =========================
+       ONGLETS
+       ========================= -->
+
   <nav class="tabs">
-    <div class="tab active" data-tab="programme">Programme</div>
+    <div class="tab active" data-tab="mots">Quelques mots</div>
+    <div class="tab" data-tab="programme">Programme</div>
     <div class="tab" data-tab="lieu">Lieu de réception</div>
     <div class="tab" data-tab="rsvp">Confirmer sa présence</div>
   </nav>
 
-  <section id="programme" class="tab-content active">
-    <section class="photo">
-  <img src="2.png" alt="2.png" />
-</section>
-    <h2>Programme</h2>
-    <ul>
-    <li>15h – Cérémonie civile, Mairie de Hettange-Grande</li>
-    <li>15h15 – Photos de groupe sur le parvis de l'église d'Hettange-Grande</li>
-    <li>16h – Cérémonie religieuse, Mairie de Hettange-Grande</li>
-    <li>18h30 – Vin d'honneur - Verrière de l'Auberge de la Klauss</li>
-    <li>3h – Départ des invités</li>
-    </ul>
+
+  <!-- =========================
+       QUELQUES MOTS
+       ========================= -->
+
+  <section id="mots" class="tab-content active">
+
+    <div class="few-words">
+
+      <p>
+        Je pourrai en choisir un(e) autre, et pourtant je t'ai choisi.<br>
+        Et si tu le veux, peu importe ce qui arrivera,<br>
+        Je resterai avec toi jusqu'à la fin,<br>
+        Jusqu'à la fin.
+      </p>
+
+    </div>
+
   </section>
 
+
+  <!-- =========================
+       PROGRAMME
+       ========================= -->
+
+  <section id="programme" class="tab-content">
+
+    <section class="photo">
+      <img src="2.png" alt="Programme du mariage" />
+    </section>
+
+    <h2>Programme</h2>
+
+    <ul>
+      <li>15h – Cérémonie civile, Mairie de Hettange-Grande</li>
+      <li>15h15 – Photos de groupe sur le parvis de l'église d'Hettange-Grande</li>
+      <li>16h – Cérémonie religieuse, Mairie de Hettange-Grande</li>
+      <li>18h30 – Vin d'honneur - Verrière de l'Auberge de la Klauss</li>
+      <li>3h – Départ des invités</li>
+    </ul>
+
+  </section>
+
+
+  <!-- =========================
+       LIEU
+       ========================= -->
+
   <section id="lieu" class="tab-content">
-      <section class="photo">
-  <img src="3.png" alt="3.png" />
-</section>
+
+    <section class="photo">
+      <img src="3.png" alt="Lieu de réception" />
+    </section>
+
     <h2>Lieu de réception</h2>
+
     <p>Domaine de la Klauss</p>
-<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2595.4536844740437!2d6.373335976617923!3d49.41923626107464!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4795166203349c4f%3A0xce069dc3ff531541!2sDomaine%20de%20la%20Klauss!5e0!3m2!1sfr!2sfr!4v1788773064406!5m2!1sfr!2sfr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe></section>
+
+  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2889.4699221683686!2d6.373335976617923!3d49.41923626107464!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4795166203349c4f%3A0xce069dc3ff531541!2sDomaine%20de%20la%20Klauss!5e1!3m2!1sfr!2sfr!4v1788773828744!5m2!1sfr!2sfr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>  width="600"
+      height="450"
+      style="border:0;"
+      allowfullscreen=""
+      loading="lazy"
+      referrerpolicy="strict-origin-when-cross-origin">
+    </iframe>
+
+  </section>
+
+
+  <!-- =========================
+       RSVP
+       ========================= -->
 
   <section id="rsvp" class="tab-content">
-      <section class="photo">
-  <img src="4.png" alt="4.png" />
-</section>
+
+    <section class="photo">
+      <img src="4.png" alt="Confirmation de présence" />
+    </section>
+
     <h2>Confirmez votre présence</h2>
+
     <form action="https://formsubmit.co/vavandnico07082027@gmail.com" method="POST">
+
       <input type="hidden" name="_subject" value="Réponse RSVP Mariage" />
       <input type="hidden" name="_next" value="merci.html" />
 
@@ -154,37 +344,135 @@
       <input type="text" id="nom" name="nom" required />
 
       <label>Viendrez-vous ? *</label>
+
       <input type="radio" id="oui" name="venue" value="Oui" required />
       <label for="oui" class="inline">Oui</label>
+
       <input type="radio" id="non" name="venue" value="Non" required />
       <label for="non" class="inline">Non</label>
 
       <label for="personnes">Combien de personnes ? *</label>
-      <input type="number" id="personnes" name="personnes" min="0" max="10" required />
+      <input
+        type="number"
+        id="personnes"
+        name="personnes"
+        min="0"
+        max="10"
+        required
+      />
 
       <input type="text" name="_honey" class="hidden" />
 
       <button type="submit">Envoyer</button>
+
     </form>
+
   </section>
 
+
+  <!-- =========================
+       JAVASCRIPT
+       ========================= -->
+
   <script>
-    // Gestion simple des onglets
+
+    /* -------------------------
+       Gestion des onglets
+       ------------------------- */
+
     const tabs = document.querySelectorAll('.tab');
     const contents = document.querySelectorAll('.tab-content');
 
     tabs.forEach(tab => {
+
       tab.addEventListener('click', () => {
+
         tabs.forEach(t => t.classList.remove('active'));
+
         tab.classList.add('active');
 
         const target = tab.getAttribute('data-tab');
-        contents.forEach(c => {
-          c.id === target ? c.classList.add('active') : c.classList.remove('active');
+
+        contents.forEach(content => {
+
+          if (content.id === target) {
+            content.classList.add('active');
+          } else {
+            content.classList.remove('active');
+          }
+
         });
+
       });
+
     });
+
+
+    /* -------------------------
+       Gestion de la musique
+       ------------------------- */
+
+    const music = document.getElementById('backgroundMusic');
+    const musicButton = document.getElementById('musicButton');
+
+    let musicStarted = false;
+
+
+    // Lance la musique au premier clic/toucher sur le site
+    function startMusic() {
+
+      if (!musicStarted) {
+
+        music.play()
+          .then(() => {
+
+            musicStarted = true;
+
+            musicButton.textContent = '🔊';
+            musicButton.classList.add('playing');
+
+          })
+          .catch(() => {
+            // Le navigateur peut bloquer la lecture automatique.
+          });
+
+      }
+
+    }
+
+
+    // Premier clic ou toucher
+    document.addEventListener('click', startMusic, { once: true });
+    document.addEventListener('touchstart', startMusic, { once: true });
+
+
+    // Bouton musique
+    musicButton.addEventListener('click', (event) => {
+
+      event.stopPropagation();
+
+      if (music.paused) {
+
+        music.play();
+
+        musicButton.textContent = '🔊';
+        musicButton.classList.add('playing');
+
+        musicStarted = true;
+
+      } else {
+
+        music.pause();
+
+        musicButton.textContent = '🔇';
+        musicButton.classList.remove('playing');
+
+      }
+
+    });
+
   </script>
 
 </body>
 </html>
+```
