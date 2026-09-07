@@ -3,13 +3,13 @@
 
 html,
 body {
-  background-color: #2596be;
+  background-color: #f2f0ec;
 }
 
 body {
     font-family: 'Montserrat', sans-serif;
-    background-color: #2596be !important;
-    color: #fff;
+    background-color: #f2f0ec !important;
+    color: #f2f0ec;
     max-width: 700px;
     margin: 0 auto;
     padding: 40px 20px;
