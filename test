@@ -2,16 +2,16 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <title>V&N – Notre Mariage</title>
+  <title>Vanessa & Nicolas – Notre Mariage</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <header>
-  <h1>V&N</h1>
+  <h1>Vanessa & Nicolas</h1>
   <p>se marient</p>
-  <span>21 juin 2026 • Bordeaux</span>
+  <span>7 Août 2027 • Hettange-Grande</span>
 </header>
 
 <section>
@@ -24,9 +24,10 @@
 
 <section class="info">
   <h2>📍 Le mariage</h2>
-  <p><strong>Date :</strong> Samedi 21 juin 2026</p>
-  <p><strong>Cérémonie :</strong> 15h – Église Saint-Pierre</p>
-  <p><strong>Réception :</strong> Château de la Rose, 18h</p>
+  <p><strong>Date :</strong> Samedi 7 Août 2027</p>
+  <p><strong>Cérémonie civile :</strong> 15h – Mairie de Hettange-Grande</p>
+  <p><strong>Cérémonie religieuse :</strong> 16h - Eglise d'Hettange-Grande</p>
+  <p><strong>Réception :</strong> 18h30 - Auberge de la Klauss</p>
 </section>
 
 <section>
