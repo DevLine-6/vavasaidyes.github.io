@@ -11,7 +11,31 @@
   <link rel="stylesheet" href="style.css" />
 
   <style>
-    /* Styles spécifiques aux onglets */
+
+    /* =========================
+       FOND DE LA PAGE
+       ========================= */
+
+    html,
+    body {
+      background-color: #f2f0ec !important;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      color: #333;
+      max-width: 700px;
+      margin: 40px auto;
+      padding: 0 20px;
+      line-height: 1.6;
+      box-sizing: border-box;
+    }
+
+
+    /* =========================
+       ONGLET
+       ========================= */
+
     .tabs {
       display: flex;
       justify-content: center;
@@ -49,7 +73,11 @@
       display: block;
     }
 
-    /* Onglet Quelques mots */
+
+    /* =========================
+       QUELQUES MOTS
+       ========================= */
+
     .few-words {
       min-height: 300px;
       display: flex;
@@ -70,7 +98,25 @@
       margin: 0;
     }
 
-    /* Formulaire */
+
+    /* =========================
+       IMAGES
+       ========================= */
+
+    .photo img {
+      width: 100%;
+      max-height: 400px;
+      object-fit: cover;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      margin-top: 20px;
+    }
+
+
+    /* =========================
+       FORMULAIRE
+       ========================= */
+
     form label {
       display: block;
       margin-bottom: 6px;
@@ -88,6 +134,8 @@
       margin-bottom: 20px;
       font-size: 1rem;
       box-sizing: border-box;
+      background-color: white;
+      color: #333;
     }
 
     form input[type="radio"] {
@@ -106,6 +154,11 @@
       border: none;
     }
 
+
+    /* =========================
+       BOUTON
+       ========================= */
+
     button {
       background-color: #bfa26f;
       color: white;
@@ -121,6 +174,7 @@
     button:hover {
       background-color: #a2874f;
     }
+
 
     /* =========================
        BOUTON MUSIQUE
@@ -152,7 +206,9 @@
       cursor: pointer;
       z-index: 9999;
 
-      transition: transform 0.2s ease, background-color 0.3s ease;
+      transition:
+        transform 0.2s ease,
+        background-color 0.3s ease;
     }
 
     #musicButton:hover {
@@ -178,7 +234,36 @@
       }
     }
 
-    /* Responsive */
+
+    /* =========================
+       GOOGLE MAPS
+       ========================= */
+
+    iframe {
+      width: 100%;
+      max-width: 600px;
+      border-radius: 15px;
+      margin-top: 10px;
+    }
+
+
+    /* =========================
+       ÉLÉMENTS CACHÉS
+       ========================= */
+
+    .hidden {
+      display: none;
+    }
+
+    .inline {
+      display: inline;
+    }
+
+
+    /* =========================
+       MOBILE
+       ========================= */
+
     @media (max-width: 480px) {
 
       .tabs {
@@ -209,8 +294,10 @@
         font-size: 20px;
       }
     }
+
   </style>
 </head>
+
 
 <body>
 
@@ -218,12 +305,12 @@
        MUSIQUE DE FOND
        ========================= -->
 
-  <audio id="backgroundMusic" loop>
+  <audio id="backgroundMusic" loop preload="auto">
     <source src="musique.mp3" type="audio/mpeg">
     Votre navigateur ne supporte pas la lecture audio.
   </audio>
 
-  <button id="musicButton" aria-label="Activer ou désactiver la musique">
+  <button id="musicButton" type="button" aria-label="Activer ou désactiver la musique">
     ♫
   </button>
 
@@ -233,21 +320,36 @@
        ========================= -->
 
   <header style="text-align:center; margin: 40px 0;">
+
     <section class="photo">
       <img src="1.png" alt="Vanessa & Nicolas" />
     </section>
+
   </header>
 
 
   <!-- =========================
-       ONGLETS
+       ONGLET
        ========================= -->
 
   <nav class="tabs">
-    <div class="tab active" data-tab="mots">Quelques mots</div>
-    <div class="tab" data-tab="programme">Programme</div>
-    <div class="tab" data-tab="lieu">Lieu de réception</div>
-    <div class="tab" data-tab="rsvp">Confirmer sa présence</div>
+
+    <div class="tab active" data-tab="mots">
+      Quelques mots
+    </div>
+
+    <div class="tab" data-tab="programme">
+      Programme
+    </div>
+
+    <div class="tab" data-tab="lieu">
+      Lieu de réception
+    </div>
+
+    <div class="tab" data-tab="rsvp">
+      Confirmer sa présence
+    </div>
+
   </nav>
 
 
@@ -278,7 +380,7 @@
   <section id="programme" class="tab-content">
 
     <section class="photo">
-      <img src="2.png" alt="2.png" />
+      <img src="2.png" alt="Programme du mariage" />
     </section>
 
     <h2>Programme</h2>
@@ -301,14 +403,16 @@
   <section id="lieu" class="tab-content">
 
     <section class="photo">
-      <img src="3.png" alt="3.png" />
+      <img src="3.png" alt="Lieu de réception" />
     </section>
 
     <h2>Lieu de réception</h2>
 
     <p>Domaine de la Klauss</p>
 
-  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2889.4699221683686!2d6.373335976617923!3d49.41923626107464!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4795166203349c4f%3A0xce069dc3ff531541!2sDomaine%20de%20la%20Klauss!5e1!3m2!1sfr!2sfr!4v1788773828744!5m2!1sfr!2sfr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2889.4699221683686!2d6.373335976617923!3d49.41923626107464!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4795166203349c4f%3A0xce069dc3ff531541!2sDomaine%20de%20la%20Klauss!5e1!3m2!1sfr!2sfr!4v1788773828744!5m2!1sfr!2sfr"
+      width="600"
       height="450"
       style="border:0;"
       allowfullscreen=""
@@ -326,43 +430,97 @@
   <section id="rsvp" class="tab-content">
 
     <section class="photo">
-      <img src="4.png" alt="4.png" />
+      <img src="4.png" alt="Confirmation de présence" />
     </section>
 
     <h2>Confirmez votre présence</h2>
 
-    <form action="https://formsubmit.co/vavandnico07082027@gmail.com" method="POST">
+    <form
+      action="https://formsubmit.co/vavandnico07082027@gmail.com"
+      method="POST">
 
-      <input type="hidden" name="_subject" value="Réponse RSVP Mariage" />
-      <input type="hidden" name="_next" value="merci.html" />
+      <input
+        type="hidden"
+        name="_subject"
+        value="Réponse RSVP Mariage" />
 
-      <label for="email">Votre email *</label>
-      <input type="email" id="email" name="email" required />
+      <input
+        type="hidden"
+        name="_next"
+        value="merci.html" />
 
-      <label for="nom">Nom et prénom *</label>
-      <input type="text" id="nom" name="nom" required />
 
-      <label>Viendrez-vous ? *</label>
+      <label for="email">
+        Votre email *
+      </label>
 
-      <input type="radio" id="oui" name="venue" value="Oui" required />
-      <label for="oui" class="inline">Oui</label>
+      <input
+        type="email"
+        id="email"
+        name="email"
+        required />
 
-      <input type="radio" id="non" name="venue" value="Non" required />
-      <label for="non" class="inline">Non</label>
 
-      <label for="personnes">Combien de personnes ? *</label>
+      <label for="nom">
+        Nom et prénom *
+      </label>
+
+      <input
+        type="text"
+        id="nom"
+        name="nom"
+        required />
+
+
+      <label>
+        Viendrez-vous ? *
+      </label>
+
+      <input
+        type="radio"
+        id="oui"
+        name="venue"
+        value="Oui"
+        required />
+
+      <label for="oui" class="inline">
+        Oui
+      </label>
+
+      <input
+        type="radio"
+        id="non"
+        name="venue"
+        value="Non"
+        required />
+
+      <label for="non" class="inline">
+        Non
+      </label>
+
+
+      <label for="personnes">
+        Combien de personnes ? *
+      </label>
+
       <input
         type="number"
         id="personnes"
         name="personnes"
         min="0"
         max="10"
-        required
-      />
+        required />
 
-      <input type="text" name="_honey" class="hidden" />
 
-      <button type="submit">Envoyer</button>
+      <input
+        type="text"
+        name="_honey"
+        class="hidden" />
+
+
+      <button type="submit">
+        Envoyer
+      </button>
 
     </form>
 
@@ -375,9 +533,9 @@
 
   <script>
 
-    /* -------------------------
-       Gestion des onglets
-       ------------------------- */
+    /* =========================
+       GESTION DES ONGLET
+       ========================= */
 
     const tabs = document.querySelectorAll('.tab');
     const contents = document.querySelectorAll('.tab-content');
@@ -386,7 +544,9 @@
 
       tab.addEventListener('click', () => {
 
-        tabs.forEach(t => t.classList.remove('active'));
+        tabs.forEach(t => {
+          t.classList.remove('active');
+        });
 
         tab.classList.add('active');
 
@@ -407,9 +567,9 @@
     });
 
 
-    /* -------------------------
-       Gestion de la musique
-       ------------------------- */
+    /* =========================
+       MUSIQUE
+       ========================= */
 
     const music = document.getElementById('backgroundMusic');
     const musicButton = document.getElementById('musicButton');
@@ -417,7 +577,6 @@
     let musicStarted = false;
 
 
-    // Lance la musique au premier clic/toucher sur le site
     function startMusic() {
 
       if (!musicStarted) {
@@ -428,11 +587,17 @@
             musicStarted = true;
 
             musicButton.textContent = '🔊';
+
             musicButton.classList.add('playing');
 
           })
-          .catch(() => {
-            // Le navigateur peut bloquer la lecture automatique.
+          .catch(error => {
+
+            console.log(
+              'La lecture automatique est bloquée :',
+              error
+            );
+
           });
 
       }
@@ -440,35 +605,48 @@
     }
 
 
-    // Premier clic ou toucher
-    document.addEventListener('click', startMusic, { once: true });
-    document.addEventListener('touchstart', startMusic, { once: true });
+    /* Premier clic sur la page */
+
+    document.addEventListener(
+      'click',
+      startMusic,
+      { once: true }
+    );
 
 
-    // Bouton musique
-    musicButton.addEventListener('click', (event) => {
+    /* Bouton musique */
 
-      event.stopPropagation();
+    musicButton.addEventListener(
+      'click',
+      event => {
 
-      if (music.paused) {
+        event.stopPropagation();
 
-        music.play();
+        if (music.paused) {
 
-        musicButton.textContent = '🔊';
-        musicButton.classList.add('playing');
+          music.play()
+            .then(() => {
 
-        musicStarted = true;
+              musicStarted = true;
 
-      } else {
+              musicButton.textContent = '🔊';
 
-        music.pause();
+              musicButton.classList.add('playing');
 
-        musicButton.textContent = '🔇';
-        musicButton.classList.remove('playing');
+            });
+
+        } else {
+
+          music.pause();
+
+          musicButton.textContent = '🔇';
+
+          musicButton.classList.remove('playing');
+
+        }
 
       }
-
-    });
+    );
 
   </script>
 
