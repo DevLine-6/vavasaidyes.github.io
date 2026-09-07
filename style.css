@@ -1,25 +1,34 @@
 ```css
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Playfair+Display&display=swap');
 
-html,
-body {
-  background-color: #f2f0ec;
+/* =========================
+   FOND DE LA PAGE
+   ========================= */
+
+html {
+  background-color: #f2f0ec !important;
 }
 
 body {
-    font-family: 'Montserrat', sans-serif;
-    background-color: #f2f0ec !important;
-    color: #f2f0ec;
-    max-width: 700px;
-    margin: 0 auto;
-    padding: 40px 20px;
-    min-height: 100vh;
-    box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+  background-color: #f2f0ec !important;
+  color: #333;
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  min-height: 100vh;
+  box-sizing: border-box;
 }
+
+
+/* =========================
+   HEADER
+   ========================= */
 
 header {
   text-align: center;
   margin-bottom: 60px;
+  background-color: #f2f0ec !important;
 }
 
 header h1 {
@@ -44,9 +53,23 @@ header span {
   font-weight: 400;
 }
 
+
+/* =========================
+   SECTIONS
+   ========================= */
+
 main section {
   margin-bottom: 50px;
 }
+
+.tab-content {
+  background-color: #f2f0ec !important;
+}
+
+
+/* =========================
+   TITRES
+   ========================= */
 
 h2 {
   font-family: 'Playfair Display', serif;
@@ -54,9 +77,14 @@ h2 {
   font-size: 2rem;
   color: #bfa26f;
   margin-bottom: 25px;
-  border-bottom: 2px solid #eee;
+  border-bottom: 2px solid #ddd;
   padding-bottom: 8px;
 }
+
+
+/* =========================
+   TEXTE
+   ========================= */
 
 p,
 li {
@@ -68,6 +96,11 @@ ul {
   padding-left: 20px;
 }
 
+
+/* =========================
+   IMAGES
+   ========================= */
+
 .photo img {
   width: 100%;
   max-height: 400px;
@@ -76,6 +109,11 @@ ul {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   margin-top: 20px;
 }
+
+
+/* =========================
+   FORMULAIRE
+   ========================= */
 
 .rsvp-form {
   max-width: 500px;
@@ -100,6 +138,8 @@ form input[type="number"] {
   margin-bottom: 20px;
   font-size: 1rem;
   box-sizing: border-box;
+  background-color: #fff;
+  color: #333;
 }
 
 form input[type="radio"] {
@@ -118,6 +158,11 @@ form input[type="radio"] + label {
   border: none;
 }
 
+
+/* =========================
+   BOUTONS
+   ========================= */
+
 button {
   background-color: #bfa26f;
   color: white;
@@ -134,12 +179,22 @@ button:hover {
   background-color: #a2874f;
 }
 
+
+/* =========================
+   FOOTER
+   ========================= */
+
 footer {
   text-align: center;
   color: #999;
   font-size: 0.9rem;
   margin: 50px 0 20px;
 }
+
+
+/* =========================
+   UTILITAIRES
+   ========================= */
 
 .hidden {
   display: none;
@@ -149,7 +204,13 @@ footer {
   display: inline;
 }
 
+
+/* =========================
+   MOBILE
+   ========================= */
+
 @media (max-width: 480px) {
+
   header h1 {
     font-size: 2.5rem;
   }
