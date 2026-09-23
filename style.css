@@ -1,137 +1,426 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Playfair+Display&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@400;500;600&display=swap');
 
-body {
-  font-family: 'Montserrat', sans-serif;
-  background: #fff;
-  color: #333;
-  max-width: 700px;
-  margin: 40px auto;
-  padding: 0 20px;
-  line-height: 1.6;
+/* =========================================================
+   PALETTE AZULEJOS
+   ========================================================= */
+
+:root {
+  --blue: #173f82;
+  --blue-light: #5275a9;
+  --blue-pale: #d9e1ed;
+  --cream: #f8f5ed;
+  --white: #fffdf8;
+  --olive: #5d6847;
+  --text: #303b48;
+  --muted: #69717b;
+  --line: #c9d2df;
 }
 
+/* =========================================================
+   BASE
+   ========================================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 45px 25px;
+  font-family: 'Montserrat', sans-serif;
+  background:
+    linear-gradient(
+      rgba(255, 253, 248, 0.96),
+      rgba(255, 253, 248, 0.96)
+    ),
+    var(--cream);
+  color: var(--text);
+  line-height: 1.8;
+}
+
+/* =========================================================
+   CADRE PRINCIPAL
+   ========================================================= */
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 14px;
+  pointer-events: none;
+  border: 1px solid var(--blue);
+  z-index: 10;
+}
+
+body::after {
+  content: "✦";
+  position: fixed;
+  top: 2px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--white);
+  color: var(--blue);
+  padding: 0 18px;
+  font-size: 18px;
+  z-index: 11;
+}
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
 header {
+  max-width: 900px;
+  margin: 40px auto 90px;
   text-align: center;
-  margin-bottom: 60px;
+  position: relative;
+  padding: 65px 30px 55px;
+}
+
+/* petite ligne décorative */
+
+header::before,
+header::after {
+  content: "❧";
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--blue);
+  font-size: 38px;
+  opacity: 0.85;
+}
+
+header::before {
+  left: 0;
+}
+
+header::after {
+  right: 0;
+  transform: translateY(-50%) scaleX(-1);
 }
 
 header h1 {
-  font-family: 'Playfair Display', serif;
-  font-weight: 700;
-  font-size: 3.5rem;
   margin: 0;
-  color: #bfa26f; /* Or rosé */
-  letter-spacing: 2px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(3.5rem, 8vw, 6.5rem);
+  font-weight: 500;
+  line-height: 0.95;
+  letter-spacing: 3px;
+  color: var(--blue);
+}
+
+/* petit effet éditorial sous le titre */
+
+header h1::after {
+  content: "✦";
+  display: block;
+  margin: 22px auto 18px;
+  font-family: serif;
+  font-size: 18px;
+  color: var(--olive);
 }
 
 header p {
-  font-size: 1.2rem;
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.85rem;
   font-weight: 600;
-  margin: 10px 0 5px;
-  color: #666;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--olive);
 }
 
 header span {
+  display: block;
+  margin-top: 10px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.35rem;
   font-style: italic;
-  color: #999;
-  font-weight: 400;
+  color: var(--muted);
+}
+
+/* =========================================================
+   CONTENU
+   ========================================================= */
+
+main {
+  max-width: 850px;
+  margin: 0 auto;
 }
 
 main section {
-  margin-bottom: 50px;
+  position: relative;
+  margin-bottom: 90px;
+  padding: 45px 50px;
+  background: rgba(255, 253, 248, 0.85);
+  border: 1px solid var(--line);
 }
+
+/* petit détail décoratif dans les coins */
+
+main section::before,
+main section::after {
+  position: absolute;
+  color: var(--blue);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 28px;
+}
+
+main section::before {
+  content: "❧";
+  top: 10px;
+  left: 15px;
+}
+
+main section::after {
+  content: "❧";
+  bottom: 10px;
+  right: 15px;
+  transform: rotate(180deg);
+}
+
+/* =========================================================
+   TITRES
+   ========================================================= */
 
 h2 {
-  font-family: 'Playfair Display', serif;
+  margin: 0 0 30px;
+  padding-bottom: 15px;
+  position: relative;
+
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.7rem;
   font-weight: 600;
-  font-size: 2rem;
-  color: #bfa26f;
-  margin-bottom: 25px;
-  border-bottom: 2px solid #eee;
-  padding-bottom: 8px;
+  line-height: 1.1;
+  letter-spacing: 1px;
+  text-align: center;
+  color: var(--blue);
 }
 
-p, li {
-  font-size: 1rem;
-  color: #555;
+/* ligne double façon décoration céramique */
+
+h2::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 1px;
+  margin: 14px auto 0;
+  background: var(--blue);
+  box-shadow: 0 5px 0 var(--blue-light);
 }
+
+p,
+li {
+  font-size: 0.95rem;
+  color: var(--text);
+}
+
+p {
+  max-width: 680px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* =========================================================
+   LISTES
+   ========================================================= */
 
 ul {
-  padding-left: 20px;
+  padding-left: 0;
+  list-style: none;
+  max-width: 650px;
+  margin: 0 auto;
+}
+
+li {
+  position: relative;
+  padding: 8px 0 8px 28px;
+  border-bottom: 1px solid rgba(201, 210, 223, 0.55);
+}
+
+li::before {
+  content: "✦";
+  position: absolute;
+  left: 5px;
+  color: var(--blue);
+  font-size: 11px;
+}
+
+/* =========================================================
+   PHOTO
+   ========================================================= */
+
+.photo {
+  margin: 60px auto;
+  text-align: center;
+  position: relative;
+}
+
+.photo::before {
+  content: "";
+  position: absolute;
+  inset: -12px;
+  border: 1px solid var(--blue-light);
+  pointer-events: none;
 }
 
 .photo img {
+  display: block;
   width: 100%;
-  max-height: 400px;
+  max-height: 520px;
   object-fit: cover;
-  border-radius: 15px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  margin-top: 20px;
+  border-radius: 0;
+  margin: 0;
+  box-shadow: 0 12px 35px rgba(23, 63, 130, 0.12);
 }
 
+/* =========================================================
+   FORMULAIRE RSVP
+   ========================================================= */
+
 .rsvp-form {
-  max-width: 500px;
+  max-width: 560px;
   margin: 0 auto;
   text-align: left;
 }
 
 form label {
   display: block;
-  margin-bottom: 6px;
+  margin: 0 0 7px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.75rem;
   font-weight: 600;
-  color: #444;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--olive);
 }
 
 form input[type="text"],
 form input[type="email"],
 form input[type="number"] {
   width: 100%;
-  padding: 8px 10px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  margin-bottom: 20px;
-  font-size: 1rem;
-  box-sizing: border-box;
+  padding: 14px 15px;
+  margin-bottom: 23px;
+
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.95rem;
+  color: var(--text);
+
+  background: rgba(255, 255, 255, 0.65);
+  border: 1px solid #b9c5d4;
+  border-radius: 0;
+
+  outline: none;
+  transition:
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
 }
+
+form input[type="text"]:focus,
+form input[type="email"]:focus,
+form input[type="number"]:focus {
+  border-color: var(--blue);
+  box-shadow: 0 3px 0 rgba(23, 63, 130, 0.12);
+}
+
+/* =========================================================
+   RADIO
+   ========================================================= */
 
 form input[type="radio"] {
   width: auto;
-  margin-right: 6px;
+  margin-right: 7px;
+  accent-color: var(--blue);
   vertical-align: middle;
   margin-bottom: 0;
 }
 
 form input[type="radio"] + label {
   display: inline-block;
-  margin-right: 15px;
   width: auto;
-  cursor: pointer;
+  margin-right: 18px;
   padding: 0;
+
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--text);
+
   border: none;
+  cursor: pointer;
 }
 
+/* =========================================================
+   BOUTON
+   ========================================================= */
+
 button {
-  background-color: #bfa26f;
-  color: white;
-  border: none;
-  border-radius: 30px;
-  padding: 12px 30px;
+  display: block;
+  margin: 15px auto 0;
+
+  padding: 14px 38px;
+
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.75rem;
   font-weight: 600;
-  font-size: 1rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+
+  color: white;
+  background: var(--blue);
+
+  border: 1px solid var(--blue);
+  border-radius: 0;
+
   cursor: pointer;
-  transition: background-color 0.3s ease;
+
+  transition:
+    background 0.3s ease,
+    color 0.3s ease,
+    transform 0.3s ease;
 }
 
 button:hover {
-  background-color: #a2874f;
+  color: var(--blue);
+  background: transparent;
+  transform: translateY(-2px);
 }
 
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
 footer {
+  max-width: 700px;
+  margin: 80px auto 35px;
+  padding-top: 25px;
+
   text-align: center;
-  color: #999;
-  font-size: 0.9rem;
-  margin: 50px 0 20px;
+
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.15rem;
+  font-style: italic;
+
+  color: var(--muted);
+
+  border-top: 1px solid var(--line);
 }
+
+footer::before {
+  content: "✦";
+  display: block;
+  margin-bottom: 12px;
+  color: var(--blue);
+  font-size: 14px;
+}
+
+/* =========================================================
+   UTILITAIRES
+   ========================================================= */
 
 .hidden {
   display: none;
@@ -141,14 +430,67 @@ footer {
   display: inline;
 }
 
-@media (max-width: 480px) {
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+  body {
+    padding: 25px 15px;
+  }
+
+  body::before {
+    inset: 8px;
+  }
+
+  header {
+    margin: 25px auto 55px;
+    padding: 45px 20px;
+  }
+
+  header::before,
+  header::after {
+    display: none;
+  }
+
   header h1 {
-    font-size: 2.5rem;
+    font-size: 3.6rem;
+    letter-spacing: 1px;
   }
+
+  header p {
+    font-size: 0.7rem;
+    letter-spacing: 2.5px;
+  }
+
+  header span {
+    font-size: 1.2rem;
+  }
+
+  main section {
+    margin-bottom: 55px;
+    padding: 35px 22px;
+  }
+
   h2 {
-    font-size: 1.5rem;
+    font-size: 2.25rem;
   }
-  .rsvp-form {
-    max-width: 100%;
+
+  p,
+  li {
+    font-size: 0.9rem;
+  }
+
+  .photo {
+    margin: 45px auto;
+  }
+
+  .photo::before {
+    inset: -7px;
+  }
+
+  button {
+    width: 100%;
   }
 }
