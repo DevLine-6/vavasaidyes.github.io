@@ -1,3 +1,4 @@
+```css
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@400;500;600&display=swap');
 
 /* =========================================================
@@ -14,6 +15,7 @@
   --text: #303b48;
   --muted: #69717b;
   --line: #c9d2df;
+  --gold: #bfa26f;
 }
 
 
@@ -110,6 +112,7 @@ header::after {
   transform: translateY(-50%);
 
   color: var(--blue);
+
   font-family: 'Cormorant Garamond', serif;
   font-size: 38px;
 
@@ -245,7 +248,7 @@ main section::after {
 }
 
 
-/* Pour conserver le fonctionnement de ton site */
+/* Pour conserver le fonctionnement du site */
 
 .tab-content {
   background-color: var(--cream) !important;
@@ -310,13 +313,11 @@ li {
   color: var(--text);
 }
 
-
 p {
   max-width: 680px;
   margin-left: auto;
   margin-right: auto;
 }
-
 
 ul {
   padding-left: 0;
@@ -363,7 +364,6 @@ li::before {
 
   margin: 55px auto;
 
-  /* Pas de cadre autour de l'image */
   padding: 0;
 
   background: transparent;
@@ -390,17 +390,261 @@ li::before {
 
   object-fit: cover;
 
-  /* Aucun arrondi */
   border-radius: 0;
 
-  /* Pas de cadre blanc */
   border: none;
 
-  /* Ombre très légère uniquement */
-  box-shadow: 0 8px 25px rgba(23, 63, 130, 0.08);
+  box-shadow:
+    0 8px 25px rgba(23, 63, 130, 0.08);
 
   margin: 0 auto;
 }
+
+
+/* =========================================================
+   PROGRAMME - TIMELINE
+   ========================================================= */
+
+#programme {
+  padding: 40px 20px 70px;
+
+  background-color: var(--cream) !important;
+}
+
+
+/* Titre du programme */
+
+#programme h2 {
+  font-family: 'Cormorant Garamond', serif;
+
+  font-size: 2.8rem;
+
+  color: var(--blue);
+
+  text-align: center;
+
+  letter-spacing: 3px;
+
+  margin: 30px 0 55px;
+}
+
+
+/* =========================================================
+   TIMELINE
+   ========================================================= */
+
+.timeline {
+  position: relative;
+
+  max-width: 750px;
+
+  margin: 0 auto;
+
+  padding: 10px 0;
+}
+
+
+/* Ligne verticale */
+
+.timeline::before {
+  content: "";
+
+  position: absolute;
+
+  left: 35px;
+
+  top: 35px;
+  bottom: 35px;
+
+  width: 2px;
+
+  background-color: var(--gold);
+}
+
+
+/* =========================================================
+   ÉLÉMENT DE TIMELINE
+   ========================================================= */
+
+.timeline-item {
+  position: relative;
+
+  display: flex;
+
+  align-items: flex-start;
+
+  min-height: 130px;
+
+  margin-bottom: 25px;
+
+  padding-left: 0;
+}
+
+
+/* =========================================================
+   ICÔNE
+   ========================================================= */
+
+.timeline-icon {
+  position: relative;
+
+  z-index: 2;
+
+  flex-shrink: 0;
+
+  width: 70px;
+  height: 70px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background-color: var(--blue);
+
+  border: 4px solid var(--cream);
+
+  box-shadow:
+    0 3px 12px rgba(0, 0, 0, 0.12);
+
+  font-size: 1.7rem;
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+
+/* =========================================================
+   CONTENU
+   ========================================================= */
+
+.timeline-content {
+  margin-left: 25px;
+
+  padding: 18px 25px;
+
+  flex: 1;
+
+  border-radius: 18px;
+
+  background-color: #e8eef8;
+
+  box-shadow:
+    0 5px 18px rgba(0, 0, 0, 0.07);
+
+  text-align: left;
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+
+/* =========================================================
+   HEURE
+   ========================================================= */
+
+.timeline-time {
+  font-family: 'Montserrat', sans-serif;
+
+  font-size: 0.9rem;
+
+  font-weight: 700;
+
+  letter-spacing: 2px;
+
+  color: #b08b48;
+
+  margin-bottom: 5px;
+}
+
+
+/* =========================================================
+   NOM DE L'ÉTAPE
+   ========================================================= */
+
+.timeline-content h3 {
+  font-family: 'Cormorant Garamond', serif;
+
+  font-size: 1.6rem;
+
+  font-weight: 600;
+
+  color: var(--blue);
+
+  margin: 0 0 6px;
+}
+
+
+/* =========================================================
+   LIEU
+   ========================================================= */
+
+.timeline-content p {
+  font-family: 'Montserrat', sans-serif;
+
+  font-size: 0.85rem;
+
+  color: #5c6d82;
+
+  margin: 0;
+
+  line-height: 1.5;
+}
+
+
+/* =========================================================
+   COULEURS ALTERNÉES
+   ========================================================= */
+
+.item-blue .timeline-content {
+  background-color: #e8eef8;
+}
+
+.item-blue .timeline-icon {
+  background-color: var(--blue);
+}
+
+
+.item-gold .timeline-content {
+  background-color: #f3ead9;
+}
+
+.item-gold .timeline-icon {
+  background-color: var(--gold);
+}
+
+
+.item-grey .timeline-content {
+  background-color: #e9e9e7;
+}
+
+.item-grey .timeline-icon {
+  background-color: #687789;
+}
+
+
+/* =========================================================
+   EFFET AU SURVOL
+   ========================================================= */
+
+.timeline-item:hover .timeline-content {
+  transform: translateX(5px);
+
+  box-shadow:
+    0 9px 25px rgba(0, 0, 0, 0.12);
+}
+
+.timeline-item:hover .timeline-icon {
+  transform: scale(1.08);
+
+  box-shadow:
+    0 5px 18px rgba(0, 0, 0, 0.18);
+}
+
 
 /* =========================================================
    FORMULAIRE RSVP
@@ -437,7 +681,6 @@ form label {
 form input[type="text"],
 form input[type="email"],
 form input[type="number"] {
-
   width: 100%;
 
   padding: 14px 15px;
@@ -471,329 +714,18 @@ form input[type="number"] {
 form input[type="text"]:focus,
 form input[type="email"]:focus,
 form input[type="number"]:focus {
-
   border-color: var(--blue);
 
   box-shadow:
     0 3px 0 rgba(23, 63, 130, 0.10);
 }
-  /* =========================
-   PROGRAMME
-   ========================= */
 
-#programme {
-  padding: 40px 20px 70px;
-  background-color: #f8f5ed;
-}
-
-
-/* =========================
-   TITRE
-   ========================= */
-
-#programme h2 {
-  font-family: 'Playfair Display', serif;
-
-  font-size: 2.8rem;
-
-  color: #173f82;
-
-  text-align: center;
-
-  letter-spacing: 3px;
-
-  margin: 30px 0 55px;
-}
-
-
-/* =========================
-   TIMELINE
-   ========================= */
-
-.timeline {
-  position: relative;
-
-  max-width: 750px;
-
-  margin: 0 auto;
-
-  padding: 10px 0;
-}
-
-
-/*
-   LA LIGNE VERTICALE
-*/
-
-.timeline::before {
-  content: "";
-
-  position: absolute;
-
-  left: 35px;
-
-  top: 35px;
-  bottom: 35px;
-
-  width: 2px;
-
-  background-color: #bfa26f;
-}
-
-
-/* =========================
-   ÉLÉMENT
-   ========================= */
-
-.timeline-item {
-
-  position: relative;
-
-  display: flex;
-
-  align-items: flex-start;
-
-  min-height: 130px;
-
-  margin-bottom: 25px;
-
-  padding-left: 0;
-}
-
-
-/* =========================
-   ICÔNE
-   ========================= */
-
-.timeline-icon {
-
-  position: relative;
-
-  z-index: 2;
-
-  flex-shrink: 0;
-
-  width: 70px;
-  height: 70px;
-
-  display: flex;
-
-  align-items: center;
-  justify-content: center;
-
-  border-radius: 50%;
-
-  background-color: #173f82;
-
-  border: 4px solid #f8f5ed;
-
-  box-shadow:
-    0 3px 12px rgba(0, 0, 0, 0.12);
-
-  font-size: 1.7rem;
-
-  transition:
-    transform 0.3s ease,
-    box-shadow 0.3s ease;
-}
-
-
-/* =========================
-   CONTENU
-   ========================= */
-
-.timeline-content {
-
-  margin-left: 25px;
-
-  padding: 18px 25px;
-
-  flex: 1;
-
-  border-radius: 18px;
-
-  background-color: #e8eef8;
-
-  box-shadow:
-    0 5px 18px rgba(0, 0, 0, 0.07);
-
-  text-align: left;
-
-  transition:
-    transform 0.3s ease,
-    box-shadow 0.3s ease;
-}
-
-
-/* =========================
-   HEURE
-   ========================= */
-
-.timeline-time {
-
-  font-family: 'Montserrat', sans-serif;
-
-  font-size: 0.9rem;
-
-  font-weight: 700;
-
-  letter-spacing: 2px;
-
-  color: #b08b48;
-
-  margin-bottom: 5px;
-}
-
-
-/* =========================
-   NOM DE L'ÉTAPE
-   ========================= */
-
-.timeline-content h3 {
-
-  font-family: 'Playfair Display', serif;
-
-  font-size: 1.45rem;
-
-  color: #173f82;
-
-  margin: 0 0 6px;
-}
-
-
-/* =========================
-   LIEU
-   ========================= */
-
-.timeline-content p {
-
-  font-family: 'Montserrat', sans-serif;
-
-  font-size: 0.85rem;
-
-  color: #5c6d82;
-
-  margin: 0;
-
-  line-height: 1.5;
-}
-
-
-/* =========================
-   COULEURS ALTERNÉES
-   ========================= */
-
-.item-blue .timeline-content {
-  background-color: #e8eef8;
-}
-
-.item-blue .timeline-icon {
-  background-color: #173f82;
-}
-
-
-.item-gold .timeline-content {
-  background-color: #f3ead9;
-}
-
-.item-gold .timeline-icon {
-  background-color: #bfa26f;
-}
-
-
-.item-grey .timeline-content {
-  background-color: #e9e9e7;
-}
-
-.item-grey .timeline-icon {
-  background-color: #687789;
-}
-
-
-/* =========================
-   EFFET AU SURVOL
-   ========================= */
-
-.timeline-item:hover .timeline-content {
-
-  transform: translateX(5px);
-
-  box-shadow:
-    0 9px 25px rgba(0, 0, 0, 0.12);
-}
-
-
-.timeline-item:hover .timeline-icon {
-
-  transform: scale(1.08);
-
-  box-shadow:
-    0 5px 18px rgba(0, 0, 0, 0.18);
-}
-
-
-/* =========================
-   MOBILE
-   ========================= */
-
-@media (max-width: 600px) {
-
-  #programme {
-    padding: 30px 15px 50px;
-  }
-
-  #programme h2 {
-    font-size: 2.2rem;
-    margin-bottom: 40px;
-  }
-
-  .timeline::before {
-    left: 27px;
-  }
-
-  .timeline-icon {
-
-    width: 54px;
-    height: 54px;
-
-    font-size: 1.35rem;
-
-    border-width: 3px;
-  }
-
-  .timeline-content {
-
-    margin-left: 15px;
-
-    padding: 15px 17px;
-
-    border-radius: 15px;
-  }
-
-  .timeline-time {
-    font-size: 0.8rem;
-  }
-
-  .timeline-content h3 {
-    font-size: 1.15rem;
-  }
-
-  .timeline-content p {
-    font-size: 0.75rem;
-  }
-
-  .timeline-item {
-    min-height: 110px;
-    margin-bottom: 15px;
-  }
-}
 
 /* =========================================================
    RADIO
    ========================================================= */
 
 form input[type="radio"] {
-
   width: auto;
 
   margin-right: 7px;
@@ -807,7 +739,6 @@ form input[type="radio"] {
 
 
 form input[type="radio"] + label {
-
   display: inline-block;
 
   margin-right: 18px;
@@ -839,7 +770,6 @@ form input[type="radio"] + label {
    ========================================================= */
 
 button {
-
   display: block;
 
   margin: 15px auto 0;
@@ -874,7 +804,6 @@ button {
 
 
 button:hover {
-
   background-color: transparent;
 
   color: var(--blue);
@@ -888,7 +817,6 @@ button:hover {
    ========================================================= */
 
 footer {
-
   text-align: center;
 
   color: var(--muted);
@@ -910,7 +838,6 @@ footer {
 
 
 footer::before {
-
   content: "✦";
 
   display: block;
@@ -985,7 +912,6 @@ footer::before {
 
 
   main section {
-
     margin-bottom: 50px;
 
     padding: 35px 22px;
@@ -1008,15 +934,6 @@ footer::before {
   }
 
 
-  .photo::before {
-
-    top: -7px;
-    right: -7px;
-    bottom: -7px;
-    left: -7px;
-  }
-
-
   button {
     width: 100%;
   }
@@ -1025,4 +942,67 @@ footer::before {
   .rsvp-form {
     max-width: 100%;
   }
+
+
+  /* =========================
+     TIMELINE MOBILE
+     ========================= */
+
+  #programme {
+    padding: 30px 10px 50px;
+  }
+
+
+  #programme h2 {
+    font-size: 2.2rem;
+
+    margin-bottom: 40px;
+  }
+
+
+  .timeline::before {
+    left: 27px;
+  }
+
+
+  .timeline-icon {
+    width: 54px;
+    height: 54px;
+
+    font-size: 1.35rem;
+
+    border-width: 3px;
+  }
+
+
+  .timeline-content {
+    margin-left: 15px;
+
+    padding: 15px 17px;
+
+    border-radius: 15px;
+  }
+
+
+  .timeline-time {
+    font-size: 0.8rem;
+  }
+
+
+  .timeline-content h3 {
+    font-size: 1.3rem;
+  }
+
+
+  .timeline-content p {
+    font-size: 0.75rem;
+  }
+
+
+  .timeline-item {
+    min-height: 110px;
+
+    margin-bottom: 15px;
+  }
 }
+```
