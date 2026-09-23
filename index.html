@@ -756,124 +756,42 @@
   <!-- =========================
        RSVP
        ========================= -->
+<section
+  id="rsvp"
+  class="tab-content">
 
-  <section
-    id="rsvp"
-    class="tab-content">
+  <section class="photo">
 
-    <section class="photo">
-
-      <img
-        src="4.png"
-        alt="4.png" />
-
-    </section>
-
-    <h2>
-      Confirmez votre présence
-    </h2>
-
-    <form
-      action="https://formsubmit.co/vavandnico07082027@gmail.com"
-      method="POST">
-
-      <input
-        type="hidden"
-        name="_subject"
-        value="Réponse RSVP Mariage" />
-
-      <input
-        type="hidden"
-        name="_next"
-        value="merci.html" />
-
-
-      <label for="email">
-        Votre email *
-      </label>
-
-      <input
-        type="email"
-        id="email"
-        name="email"
-        required />
-
-
-      <label for="nom">
-        Nom et prénom *
-      </label>
-
-      <input
-        type="text"
-        id="nom"
-        name="nom"
-        required />
-
-
-      <label>
-        Viendrez-vous ? *
-      </label>
-
-      <input
-        type="radio"
-        id="oui"
-        name="venue"
-        value="Oui"
-        required />
-
-      <label
-        for="oui"
-        class="inline">
-
-        Oui
-
-      </label>
-
-
-      <input
-        type="radio"
-        id="non"
-        name="venue"
-        value="Non"
-        required />
-
-      <label
-        for="non"
-        class="inline">
-
-        Non
-
-      </label>
-
-
-      <label for="personnes">
-        Combien de personnes ? *
-      </label>
-
-      <input
-        type="number"
-        id="personnes"
-        name="personnes"
-        min="0"
-        max="10"
-        required />
-
-
-      <input
-        type="text"
-        name="_honey"
-        class="hidden" />
-
-
-      <button type="submit">
-        Envoyer
-      </button>
-
-    </form>
+    <img
+      src="4.png"
+      alt="Confirmation de présence" />
 
   </section>
 
+  <h2>
+    Confirmez votre présence
+  </h2>
 
+  <p class="rsvp-intro">
+    Merci de compléter le formulaire ci-dessous
+    afin de nous confirmer votre présence.
+  </p>
+
+  <div class="google-form-container">
+
+    <iframe
+      src="https://docs.google.com/forms/d/e/1FAIpQLSfS4ZwaCQsyAoFVs6FXhqdshMRShoiAWIqW1K5kjT-Fw5ji7w/viewform?embedded=true"
+      width="100%"
+      height="1000"
+      frameborder="0"
+      marginheight="0"
+      marginwidth="0">
+      Chargement du formulaire…
+    </iframe>
+
+  </div>
+
+</section>
   <!-- =========================
        JAVASCRIPT
        ========================= -->
