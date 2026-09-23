@@ -220,66 +220,147 @@
     }
 
 
-    /* =========================
-       ONGLET
-       ========================= */
+/* =========================
+   ONGLET — STYLE AZULEJOS
+   ========================= */
 
-    .tabs {
-      display: flex;
-      justify-content: center;
+.tabs {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
 
-      margin-bottom: 30px;
+  margin: 0 auto 40px;
 
-      border-bottom: 2px solid #eee;
+  gap: 10px;
 
-      gap: 20px;
-    }
+  border-bottom: none;
+}
 
-    .tab {
-      cursor: pointer;
 
-      padding: 12px 30px;
+/* Boutons des onglets */
 
-      font-weight: 600;
+.tab {
+  cursor: pointer;
 
-      font-family: 'Montserrat', sans-serif;
+  padding: 12px 25px;
 
-      color: #666;
+  font-family: 'Montserrat', sans-serif;
 
-      border-bottom: 3px solid transparent;
+  font-size: 0.75rem;
+  font-weight: 600;
 
-      transition:
-        color 0.3s,
-        border-color 0.3s;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
 
-      user-select: none;
-    }
+  color: var(--blue);
 
-    .tab.active {
-      color: #bfa26f;
-      border-color: #bfa26f;
-    }
+  background-color: transparent;
 
-    .tab-content {
-      display: none;
+  border: 1px solid var(--blue);
 
-      max-width: 700px;
+  border-radius: 999px;
 
-      margin: 0 auto 50px;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease,
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 
-      font-family: 'Montserrat', sans-serif;
+  user-select: none;
+}
 
-      color: #555;
 
-      line-height: 1.6;
+/* Onglet au survol */
 
-      background-color: #f8f5ed !important;
-    }
+.tab:hover {
+  background-color: var(--blue-light);
 
-    .tab-content.active {
-      display: block;
-    }
+  border-color: var(--blue-light);
 
+  color: white;
+
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 5px 14px rgba(23, 63, 130, 0.15);
+}
+
+
+/* Onglet actif */
+
+.tab.active {
+  color: white;
+
+  background-color: var(--blue);
+
+  border-color: var(--blue);
+
+  box-shadow:
+    0 4px 12px rgba(23, 63, 130, 0.18);
+}
+
+
+/* =========================
+   CONTENU DES ONGLETS
+   ========================= */
+
+.tab-content {
+  display: none;
+
+  max-width: 700px;
+
+  margin: 0 auto 50px;
+
+  padding: 45px 50px;
+
+  box-sizing: border-box;
+
+  font-family: 'Montserrat', sans-serif;
+
+  color: var(--text);
+
+  line-height: 1.8;
+
+  background-color: var(--cream) !important;
+
+  border: 1px solid var(--line);
+
+  position: relative;
+}
+
+
+/* Onglet visible */
+
+.tab-content.active {
+  display: block;
+}
+
+
+/* =========================
+   MOBILE
+   ========================= */
+
+@media (max-width: 600px) {
+
+  .tabs {
+    gap: 7px;
+
+    margin-bottom: 30px;
+  }
+
+  .tab {
+    padding: 10px 17px;
+
+    font-size: 0.68rem;
+
+    letter-spacing: 1px;
+  }
+
+  .tab-content {
+    padding: 35px 22px;
+  }
+}
 
     /* =========================
        QUELQUES MOTS
