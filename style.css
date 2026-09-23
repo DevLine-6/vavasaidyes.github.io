@@ -1,200 +1,621 @@
-```css
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Playfair+Display&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@400;500;600&display=swap');
 
-/* =========================
+/* =========================================================
+   PALETTE AZULEJOS
+   ========================================================= */
+
+:root {
+  --blue: #173f82;
+  --blue-light: #5275a9;
+  --blue-pale: #d9e1ed;
+  --cream: #f8f5ed;
+  --white: #fffdf8;
+  --olive: #5d6847;
+  --text: #303b48;
+  --muted: #69717b;
+  --line: #c9d2df;
+}
+
+
+/* =========================================================
    FOND DE LA PAGE
-   ========================= */
+   ========================================================= */
 
 html {
-  background-color: #f2f0ec !important;
+  background-color: var(--cream) !important;
 }
 
 body {
   font-family: 'Montserrat', sans-serif;
-  background-color: #f2f0ec !important;
-  color: #333;
-  max-width: 700px;
+  background-color: var(--cream) !important;
+  color: var(--text);
+
+  max-width: 850px;
   margin: 0 auto;
-  padding: 40px 20px;
+  padding: 50px 25px;
+
   min-height: 100vh;
   box-sizing: border-box;
+
+  line-height: 1.8;
+
+  position: relative;
 }
 
 
-/* =========================
+/* =========================================================
+   CADRE EXTÉRIEUR
+   ========================================================= */
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 12px;
+
+  border: 1px solid var(--blue);
+
+  pointer-events: none;
+  z-index: 100;
+}
+
+
+/* Petit ornement central supérieur */
+
+body::after {
+  content: "✦";
+
+  position: fixed;
+  top: 2px;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  background-color: var(--cream);
+  color: var(--blue);
+
+  padding: 0 18px;
+
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+
+  z-index: 101;
+}
+
+
+/* =========================================================
    HEADER
-   ========================= */
+   ========================================================= */
 
 header {
+  position: relative;
+
   text-align: center;
-  margin-bottom: 60px;
-  background-color: #f2f0ec !important;
+
+  margin: 30px auto 80px;
+  padding: 55px 30px;
+
+  background-color: var(--cream) !important;
 }
+
+
+/* Ornements latéraux */
+
+header::before,
+header::after {
+  content: "❧";
+
+  position: absolute;
+  top: 50%;
+
+  transform: translateY(-50%);
+
+  color: var(--blue);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 38px;
+
+  opacity: 0.9;
+}
+
+header::before {
+  left: 0;
+}
+
+header::after {
+  right: 0;
+  transform: translateY(-50%) scaleX(-1);
+}
+
+
+/* =========================================================
+   TITRE PRINCIPAL
+   ========================================================= */
 
 header h1 {
-  font-family: 'Playfair Display', serif;
-  font-weight: 700;
-  font-size: 3.5rem;
+  font-family: 'Cormorant Garamond', serif;
+
+  font-weight: 500;
+
+  font-size: clamp(3.5rem, 8vw, 6rem);
+
+  line-height: 0.95;
+
   margin: 0;
-  color: #bfa26f;
-  letter-spacing: 2px;
+
+  color: var(--blue);
+
+  letter-spacing: 3px;
 }
+
+
+/* Petit motif sous le titre */
+
+header h1::after {
+  content: "✦";
+
+  display: block;
+
+  margin: 20px auto 15px;
+
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18px;
+
+  color: var(--olive);
+}
+
+
+/* Sous-titre */
 
 header p {
-  font-size: 1.2rem;
+  font-family: 'Montserrat', sans-serif;
+
+  font-size: 0.8rem;
   font-weight: 600;
-  margin: 10px 0 5px;
-  color: #666;
+
+  margin: 0;
+
+  color: var(--olive);
+
+  letter-spacing: 4px;
+  text-transform: uppercase;
 }
+
+
+/* Texte secondaire */
 
 header span {
+  display: block;
+
+  margin-top: 10px;
+
+  font-family: 'Cormorant Garamond', serif;
+
+  font-size: 1.35rem;
+
   font-style: italic;
-  color: #999;
   font-weight: 400;
+
+  color: var(--muted);
 }
 
 
-/* =========================
+/* =========================================================
    SECTIONS
-   ========================= */
+   ========================================================= */
 
 main section {
-  margin-bottom: 50px;
+  position: relative;
+
+  margin-bottom: 65px;
+
+  padding: 45px 50px;
+
+  background-color: rgba(255, 253, 248, 0.9);
+
+  border: 1px solid var(--line);
 }
+
+
+/* Décoration dans les coins */
+
+main section::before,
+main section::after {
+  position: absolute;
+
+  font-family: 'Cormorant Garamond', serif;
+
+  color: var(--blue);
+
+  font-size: 27px;
+}
+
+main section::before {
+  content: "❧";
+
+  top: 8px;
+  left: 14px;
+}
+
+main section::after {
+  content: "❧";
+
+  bottom: 8px;
+  right: 14px;
+
+  transform: rotate(180deg);
+}
+
+
+/* Pour conserver le fonctionnement de ton site */
 
 .tab-content {
-  background-color: #f2f0ec !important;
+  background-color: var(--cream) !important;
 }
 
 
-/* =========================
-   TITRES
-   ========================= */
+/* =========================================================
+   TITRES DE SECTIONS
+   ========================================================= */
 
 h2 {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Cormorant Garamond', serif;
+
   font-weight: 600;
-  font-size: 2rem;
-  color: #bfa26f;
-  margin-bottom: 25px;
-  border-bottom: 2px solid #ddd;
-  padding-bottom: 8px;
+
+  font-size: 2.7rem;
+
+  line-height: 1.1;
+
+  text-align: center;
+
+  color: var(--blue);
+
+  margin: 0 0 30px;
+
+  padding-bottom: 15px;
+
+  border-bottom: none;
+
+  letter-spacing: 1px;
+
+  position: relative;
 }
 
 
-/* =========================
+/* Double ligne façon papeterie */
+
+h2::after {
+  content: "";
+
+  display: block;
+
+  width: 75px;
+  height: 1px;
+
+  margin: 15px auto 0;
+
+  background-color: var(--blue);
+
+  box-shadow:
+    0 5px 0 var(--blue-light);
+}
+
+
+/* =========================================================
    TEXTE
-   ========================= */
+   ========================================================= */
 
 p,
 li {
-  font-size: 1rem;
-  color: #555;
+  font-size: 0.95rem;
+  color: var(--text);
 }
+
+
+p {
+  max-width: 680px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 
 ul {
-  padding-left: 20px;
+  padding-left: 0;
+
+  max-width: 650px;
+
+  margin-left: auto;
+  margin-right: auto;
+
+  list-style: none;
 }
 
 
-/* =========================
+/* Petits motifs devant les éléments */
+
+li {
+  position: relative;
+
+  padding: 8px 0 8px 28px;
+
+  border-bottom: 1px solid rgba(201, 210, 223, 0.55);
+}
+
+li::before {
+  content: "✦";
+
+  position: absolute;
+
+  left: 5px;
+  top: 10px;
+
+  color: var(--blue);
+
+  font-size: 10px;
+}
+
+
+/* =========================================================
    IMAGES
-   ========================= */
+   ========================================================= */
+
+.photo {
+  position: relative;
+
+  margin: 55px auto;
+}
+
+
+/* Cadre fin autour de l'image */
+
+.photo::before {
+  content: "";
+
+  position: absolute;
+
+  top: -10px;
+  right: -10px;
+  bottom: -10px;
+  left: -10px;
+
+  border: 1px solid var(--blue-light);
+
+  pointer-events: none;
+}
+
 
 .photo img {
+  display: block;
+
   width: 100%;
-  max-height: 400px;
+
+  max-height: 500px;
+
   object-fit: cover;
-  border-radius: 15px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+
+  border-radius: 0;
+
+  box-shadow:
+    0 12px 30px rgba(23, 63, 130, 0.12);
+
   margin-top: 20px;
 }
 
 
-/* =========================
-   FORMULAIRE
-   ========================= */
+/* =========================================================
+   FORMULAIRE RSVP
+   ========================================================= */
 
 .rsvp-form {
-  max-width: 500px;
+  max-width: 540px;
+
   margin: 0 auto;
+
   text-align: left;
 }
 
+
 form label {
   display: block;
-  margin-bottom: 6px;
+
+  margin-bottom: 7px;
+
+  font-family: 'Montserrat', sans-serif;
+
+  font-size: 0.75rem;
+
   font-weight: 600;
-  color: #444;
+
+  letter-spacing: 1.5px;
+
+  text-transform: uppercase;
+
+  color: var(--olive);
 }
+
 
 form input[type="text"],
 form input[type="email"],
 form input[type="number"] {
+
   width: 100%;
-  padding: 8px 10px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  margin-bottom: 20px;
-  font-size: 1rem;
+
+  padding: 14px 15px;
+
+  border: 1px solid #b9c5d4;
+
+  border-radius: 0;
+
+  margin-bottom: 22px;
+
+  font-family: 'Montserrat', sans-serif;
+
+  font-size: 0.95rem;
+
   box-sizing: border-box;
-  background-color: #fff;
-  color: #333;
+
+  background-color: rgba(255, 255, 255, 0.65);
+
+  color: var(--text);
+
+  outline: none;
+
+  transition:
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
 }
+
+
+/* Focus des champs */
+
+form input[type="text"]:focus,
+form input[type="email"]:focus,
+form input[type="number"]:focus {
+
+  border-color: var(--blue);
+
+  box-shadow:
+    0 3px 0 rgba(23, 63, 130, 0.10);
+}
+
+
+/* =========================================================
+   RADIO
+   ========================================================= */
 
 form input[type="radio"] {
+
   width: auto;
-  margin-right: 6px;
+
+  margin-right: 7px;
+
   vertical-align: middle;
+
   margin-bottom: 0;
+
+  accent-color: var(--blue);
 }
+
 
 form input[type="radio"] + label {
+
   display: inline-block;
-  margin-right: 15px;
+
+  margin-right: 18px;
+
   width: auto;
+
   cursor: pointer;
+
   padding: 0;
+
   border: none;
+
+  font-family: 'Montserrat', sans-serif;
+
+  font-size: 0.85rem;
+
+  font-weight: 500;
+
+  letter-spacing: 0;
+
+  text-transform: none;
+
+  color: var(--text);
 }
 
 
-/* =========================
+/* =========================================================
    BOUTONS
-   ========================= */
+   ========================================================= */
 
 button {
-  background-color: #bfa26f;
+
+  display: block;
+
+  margin: 15px auto 0;
+
+  background-color: var(--blue);
+
   color: white;
-  border: none;
-  border-radius: 30px;
-  padding: 12px 30px;
+
+  border: 1px solid var(--blue);
+
+  border-radius: 0;
+
+  padding: 14px 38px;
+
+  font-family: 'Montserrat', sans-serif;
+
   font-weight: 600;
-  font-size: 1rem;
+
+  font-size: 0.75rem;
+
+  letter-spacing: 2px;
+
+  text-transform: uppercase;
+
   cursor: pointer;
-  transition: background-color 0.3s ease;
+
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease,
+    transform 0.3s ease;
 }
+
 
 button:hover {
-  background-color: #a2874f;
+
+  background-color: transparent;
+
+  color: var(--blue);
+
+  transform: translateY(-2px);
 }
 
 
-/* =========================
+/* =========================================================
    FOOTER
-   ========================= */
+   ========================================================= */
 
 footer {
+
   text-align: center;
-  color: #999;
-  font-size: 0.9rem;
-  margin: 50px 0 20px;
+
+  color: var(--muted);
+
+  font-family: 'Cormorant Garamond', serif;
+
+  font-size: 1.15rem;
+
+  font-style: italic;
+
+  margin: 75px auto 30px;
+
+  padding-top: 25px;
+
+  border-top: 1px solid var(--line);
+
+  max-width: 700px;
 }
 
 
-/* =========================
+footer::before {
+
+  content: "✦";
+
+  display: block;
+
+  margin-bottom: 10px;
+
+  color: var(--blue);
+
+  font-size: 14px;
+}
+
+
+/* =========================================================
    UTILITAIRES
-   ========================= */
+   ========================================================= */
 
 .hidden {
   display: none;
@@ -205,22 +626,93 @@ footer {
 }
 
 
-/* =========================
+/* =========================================================
    MOBILE
-   ========================= */
+   ========================================================= */
 
-@media (max-width: 480px) {
+@media (max-width: 600px) {
+
+  body {
+    padding: 30px 18px;
+  }
+
+
+  body::before {
+    inset: 8px;
+  }
+
+
+  header {
+    margin: 20px auto 50px;
+
+    padding: 40px 20px;
+  }
+
+
+  header::before,
+  header::after {
+    display: none;
+  }
+
 
   header h1 {
-    font-size: 2.5rem;
+    font-size: 3.5rem;
+
+    letter-spacing: 1px;
   }
 
-  h2 {
-    font-size: 1.5rem;
+
+  header p {
+    font-size: 0.7rem;
+
+    letter-spacing: 2.5px;
   }
+
+
+  header span {
+    font-size: 1.2rem;
+  }
+
+
+  main section {
+
+    margin-bottom: 50px;
+
+    padding: 35px 22px;
+  }
+
+
+  h2 {
+    font-size: 2.25rem;
+  }
+
+
+  p,
+  li {
+    font-size: 0.9rem;
+  }
+
+
+  .photo {
+    margin: 45px auto;
+  }
+
+
+  .photo::before {
+
+    top: -7px;
+    right: -7px;
+    bottom: -7px;
+    left: -7px;
+  }
+
+
+  button {
+    width: 100%;
+  }
+
 
   .rsvp-form {
     max-width: 100%;
   }
 }
-```
