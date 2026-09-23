@@ -70,14 +70,34 @@
       padding: 30px;
     }
 
-    .welcomeTitle {
-      font-family: 'Playfair Display', serif;
-      font-size: 3rem;
-      color: #173f82;
-      letter-spacing: 2px;
-      margin-bottom: 25px;
-    }
+   
+.welcomeTitle {
+  font-family: 'Playfair Display', serif;
+  font-size: 3rem;
+  color: #173f82;
+  letter-spacing: 2px;
+  margin-bottom: 25px;
 
+  /* Animation */
+  opacity: 0;
+  transform: translateY(20px);
+  animation: welcomeTitleAppear 1.2s ease-out forwards;
+  animation-delay: 0.3s;
+}
+
+@keyframes welcomeTitleAppear {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+    letter-spacing: 8px;
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    letter-spacing: 2px;
+  }
+}
     .welcomeLine {
       width: 70px;
       height: 2px;
