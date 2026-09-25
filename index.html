@@ -241,8 +241,13 @@
 
 
 /* =========================
-   ONGLET — STYLE AZULEJOS
+   ONGLET — BLEU AZULEJOS
    ========================= */
+
+:root {
+  --blue: #173f82;
+  --blue-light: #2b5aa0;
+}
 
 .tabs {
   display: flex;
@@ -250,71 +255,45 @@
   align-items: center;
   flex-wrap: wrap;
   gap: 10px;
-
   border-bottom: none;
 }
 
-
 /* Boutons des onglets */
-
 .tab {
   cursor: pointer;
-
   padding: 12px 25px;
-
   font-family: 'Montserrat', sans-serif;
-
   font-size: 0.75rem;
   font-weight: 600;
-
   letter-spacing: 1.5px;
   text-transform: uppercase;
-
-  color: var(--blue);
-
-  background-color: transparent;
-
+  color: #ffffff;
+  background-color: var(--blue);
   border: 1px solid var(--blue);
-
   border-radius: 999px;
-
   transition:
     background-color 0.3s ease,
     color 0.3s ease,
     transform 0.3s ease,
     box-shadow 0.3s ease;
-
   user-select: none;
 }
 
-
 /* Onglet au survol */
-
 .tab:hover {
   background-color: var(--blue-light);
-
   border-color: var(--blue-light);
-
-  color: var(--blue);
-
+  color: #ffffff;
   transform: translateY(-2px);
-
-  box-shadow:
-    0 5px 14px rgba(23, 63, 130, 0.15);
+  box-shadow: 0 5px 14px rgba(23, 63, 130, 0.25);
 }
 
-
 /* Onglet actif */
-
 .tab.active {
   color: var(--blue);
-
-  background-color: var(--blue);
-
-  border-color: var(--blue);
-
-  box-shadow:
-    0 4px 12px rgba(23, 63, 130, 0.18);
+  background-color: #ffffff;
+  border: 2px solid var(--blue);
+  box-shadow: 0 4px 12px rgba(23, 63, 130, 0.18);
 }
 
 
